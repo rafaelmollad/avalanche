@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+}
+
+/* Contenedor de logo y menú */
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo,
+.navbar__link {
+  text-transform: uppercase;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-right: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Enlaces del navbar */
+.navbar__link {
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+  margin-right: 1rem;
+}
+
+/* Hamburger menu y close icon, solo aparece en dispositivos móviles */
+.navbar__hamburger-icon,
+.navbar__close-icon {
+  position: relative;
+  font-size: 2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  top: 2px;
+}
+
+.navbar-icons {
+  cursor: pointer;
+  stroke-width: 1;
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.navbar__menu--desktop {
+  display: none;
+}

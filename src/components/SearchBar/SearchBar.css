@@ -1,0 +1,17 @@
+.search-bar {
+  position: absolute;
+  right: 0;
+  left: 0;
+  padding: 0 3rem;
+}
+
+.search-bar__input {
+  width: 100%;
+  outline: none;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--gray);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  border-radius: 2px;
+}
