@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+import NavBar from './components/NavBar/NavBar';
+import MenuMobile from './components/MenuMobile/MenuMobile';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import SearchBar from './components/SearchBar/SearchBar';
+
+const App = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isSearchOpen, setSearchOpen] = useState(false);
+
+  // Oculta el scrollbar cuando el menú está abierto en dispositivos móviles.
+  document.body.style.overflowY = isMenuOpen ? 'hidden' : 'unset';
+
+  const handleIsMenuOpen = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const handleIsSearchOpen = () => {
+    setSearchOpen(!isSearchOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <NavBar
+        isMenuOpen={isMenuOpen}
+        handleIsMenuOpen={handleIsMenuOpen}
+        handleIsSearchOpen={handleIsSearchOpen}
+      />
+      {isMenuOpen && <MenuMobile />}
+      {isSearchOpen && <SearchBar />}
+      <ItemListContainer greeting='¡Bienvenido a Avalanche!' />
     </div>
   );
-}
+};
 
 export default App;

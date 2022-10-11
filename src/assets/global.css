@@ -1,0 +1,85 @@
+/************************************
+ * ESTILOS GLOBALES Y MEDIA-QUERIES *
+ ************************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --gray: #ccc;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  color: var(--black);
+}
+
+.App {
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 500px */
+@media screen and (min-width: 500px) {
+  .navbar__logo {
+    font-size: 2rem;
+  }
+
+  .navbar__hamburger-icon,
+  .navbar__close-icon {
+    font-size: 2.5rem;
+    top: 1.5px;
+  }
+
+  .navbar-icons {
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 768px */
+@media screen and (min-width: 768px) {
+  .navbar__menu--desktop {
+    display: flex;
+  }
+
+  .navbar__hamburger-icon,
+  .navbar__close-icon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .menu-mobile-link {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-mobile-container {
+    display: none;
+  }
+}
