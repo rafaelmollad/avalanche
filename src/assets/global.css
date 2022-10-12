@@ -26,6 +26,15 @@ body {
 
 .App {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
 }
 
 ul {
@@ -54,9 +63,24 @@ button {
     top: 1.5px;
   }
 
+  .menu-mobile-link {
+    font-size: 1.5rem;
+  }
+
   .navbar-icons {
     font-size: 2.5rem;
     margin-left: 1.5rem;
+  }
+
+  .wrapper {
+    height: 45vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 600px */
+@media screen and (min-width: 600px) {
+  .wrapper {
+    height: 50vh;
   }
 }
 
@@ -70,16 +94,39 @@ button {
   .navbar__close-icon {
     display: none;
   }
-}
 
-@media screen and (min-width: 500px) {
-  .menu-mobile-link {
-    font-size: 1.5rem;
+  .menu-mobile-container {
+    display: none;
+  }
+
+  .wrapper {
+    height: 55vh;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .menu-mobile-container {
-    display: none;
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1024px */
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    height: 70vh;
+  }
+
+  /* .navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+  } */
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1280px */
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    height: 85vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1280px */
+@media screen and (min-width: 1460px) {
+  .wrapper {
+    height: 100vh;
   }
 }

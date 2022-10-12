@@ -1,5 +1,8 @@
-import { IconContext } from 'react-icons';
-import { AiOutlineUser, AiOutlineSearch, AiOutlineHeart } from 'react-icons/ai';
+import {
+  UserIcon,
+  MagnifyingGlassIcon,
+  HeartIcon,
+} from '@heroicons/react/24/outline';
 
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
@@ -22,12 +25,13 @@ const NavBar = ({ isMenuOpen, handleIsMenuOpen, handleIsSearchOpen }) => {
         <MenuDesktop />
       </div>
       <div className='navbar__right'>
-        <IconContext.Provider value={{ className: 'navbar-icons' }}>
-          <AiOutlineUser />
-          <AiOutlineSearch onClick={handleIsSearchOpen} />
-          <AiOutlineHeart />
-          <CartWidget />
-        </IconContext.Provider>
+        <UserIcon className='navbar-icon' />
+        <MagnifyingGlassIcon
+          className='navbar-icon'
+          onClick={handleIsSearchOpen}
+        />
+        <HeartIcon className='navbar-icon' />
+        <CartWidget />
       </div>
     </nav>
   );

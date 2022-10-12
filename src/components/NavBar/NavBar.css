@@ -34,17 +34,23 @@
 .navbar__hamburger-icon,
 .navbar__close-icon {
   position: relative;
-  font-size: 2rem;
+  width: 24px;
   margin-right: 1rem;
-  cursor: pointer;
   top: 2px;
+  cursor: pointer;
+  stroke-width: 1.4;
 }
 
-.navbar-icons {
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
   cursor: pointer;
-  stroke-width: 1;
-  font-size: 2rem;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
+  width: 24px;
+  stroke-width: 1.4;
 }
 
 .navbar__menu--desktop {

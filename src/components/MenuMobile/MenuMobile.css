@@ -1,9 +1,13 @@
 .menu-mobile-container {
   display: flex;
   justify-content: center;
-  height: 100vh;
   background: var(--white);
   padding: 0 3rem;
+  position: absolute;
+  top: 84.8px; /* Altura del header */
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .menu-mobile {
