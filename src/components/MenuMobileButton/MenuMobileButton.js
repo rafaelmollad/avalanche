@@ -1,4 +1,4 @@
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 /* Muestra el menú hamburger o una X dependiendo del estado del menú (abierto o cerrado) */
 const MenuMobileButton = ({ isMenuOpen, handleIsMenuOpen }) => {
@@ -9,14 +9,14 @@ const MenuMobileButton = ({ isMenuOpen, handleIsMenuOpen }) => {
           className='navbar__menu navbar__menu--mobile'
           onClick={handleIsMenuOpen}
         >
-          <AiOutlineMenu className='navbar__hamburger-icon' />
+          <Bars2Icon className='navbar__hamburger-icon' />
         </button>
       ) : (
         <button
           className='navbar__menu navbar__menu--mobile'
           onClick={handleIsMenuOpen}
         >
-          <AiOutlineClose className='navbar__close-icon' />
+          <XMarkIcon className='navbar__close-icon' />
         </button>
       )}
     </>

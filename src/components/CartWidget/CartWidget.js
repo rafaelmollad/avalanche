@@ -1,7 +1,7 @@
-import { AiOutlineShopping } from 'react-icons/ai';
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 
 const CartWidget = () => {
-  return <AiOutlineShopping />;
+  return <ShoppingBagIcon className='navbar-icon' />;
 };
 
 export default CartWidget;

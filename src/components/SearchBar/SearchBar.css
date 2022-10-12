@@ -2,7 +2,7 @@
   position: absolute;
   right: 0;
   left: 0;
-  padding: 0 3rem;
+  top: 86.4px; /* Altura del header */
 }
 
 .search-bar__input {
@@ -13,5 +13,4 @@
   font-family: 'DM Sans', sans-serif;
   font-size: 1.3rem;
   letter-spacing: 1px;
-  border-radius: 2px;
 }
