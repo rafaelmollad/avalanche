@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import NavBar from './components/NavBar/NavBar';
-import MenuMobile from './components/MenuMobile/MenuMobile';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import SearchBar from './components/SearchBar/SearchBar';
-import Hero from './components/Hero/Hero';
+import NavBar from './components/NavBar';
+import MenuMobile from './components/MenuMobile';
+import ItemListContainer from './components/ItemListContainer';
+import SearchBar from './components/SearchBar';
+import Hero from './components/Hero';
 
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);

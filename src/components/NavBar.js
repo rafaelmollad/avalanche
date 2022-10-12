@@ -4,11 +4,10 @@ import {
   HeartIcon,
 } from '@heroicons/react/24/outline';
 
-import './NavBar.css';
-import CartWidget from '../CartWidget/CartWidget';
-import MenuMobileButton from '../MenuMobileButton/MenuMobileButton';
-import MenuDesktop from '../MenuDesktop/MenuDesktop';
-import Logo from '../Logo/Logo';
+import CartWidget from './CartWidget';
+import MenuMobileButton from './MenuMobileButton';
+import MenuDesktop from './MenuDesktop';
+import Logo from './Logo';
 
 const NavBar = ({ isMenuOpen, handleIsMenuOpen, handleIsSearchOpen }) => {
   return (
