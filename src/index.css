@@ -1,0 +1,249 @@
+/*****************
+ * ESTILOS BASE  *
+ *****************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --gray: #ccc;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  color: var(--black);
+}
+
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+/***********
+ * NAVBAR  *
+ ***********/
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+}
+
+/* Contenedor de logo y menú */
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo,
+.navbar__link {
+  text-transform: uppercase;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-right: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Enlaces del navbar */
+.navbar__link {
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+  margin-right: 1rem;
+}
+
+/* Estilos para el menú que aparece en dispositivos móviles */
+.menu-mobile-container {
+  display: flex;
+  justify-content: center;
+  background: var(--white);
+  padding: 0 3rem;
+  position: absolute;
+  top: 84.8px; /* Altura del header */
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.menu-mobile {
+  width: 100%;
+}
+
+.menu-mobile-link {
+  border-bottom: 1px solid var(--gray);
+  padding: 1rem 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1.4rem;
+}
+
+/* Hamburger menu y close icon, solo aparece en dispositivos móviles */
+.navbar__hamburger-icon,
+.navbar__close-icon {
+  position: relative;
+  width: 24px;
+  margin-right: 1rem;
+  top: 2px;
+  cursor: pointer;
+  stroke-width: 1.4;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  cursor: pointer;
+  margin-left: 1.5rem;
+  width: 24px;
+  stroke-width: 1.4;
+}
+
+.navbar__menu--desktop {
+  display: none;
+}
+
+/* Estilos para el search bar */
+.search-bar {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 86.4px; /* Altura del header */
+}
+
+.search-bar__input {
+  width: 100%;
+  outline: none;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--gray);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+/*********
+ * HERO  *
+ *********/
+
+.hero {
+  background-image: url('./assets/background-2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 1;
+}
+
+/******************
+ * MEDIA-QUERIES  *
+ ******************/
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 500px */
+@media screen and (min-width: 500px) {
+  .navbar__logo {
+    font-size: 2rem;
+  }
+
+  .navbar__hamburger-icon,
+  .navbar__close-icon {
+    font-size: 2.5rem;
+    top: 1.5px;
+  }
+
+  .menu-mobile-link {
+    font-size: 1.5rem;
+  }
+
+  .navbar-icons {
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+  }
+
+  .wrapper {
+    height: 45vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 600px */
+@media screen and (min-width: 600px) {
+  .wrapper {
+    height: 50vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 768px */
+@media screen and (min-width: 768px) {
+  .navbar__menu--desktop {
+    display: flex;
+  }
+
+  .navbar__hamburger-icon,
+  .navbar__close-icon {
+    display: none;
+  }
+
+  .menu-mobile-container {
+    display: none;
+  }
+
+  .wrapper {
+    height: 55vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1024px */
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    height: 70vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1280px */
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    height: 85vh;
+  }
+}
+
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1460px */
+@media screen and (min-width: 1460px) {
+  .wrapper {
+    height: 100vh;
+  }
+}

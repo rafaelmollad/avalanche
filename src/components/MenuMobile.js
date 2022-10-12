@@ -1,5 +1,3 @@
-import './MenuMobile.css';
-
 /* Este es el menú que se muestra cuando se hace click en el hamburger menu, en dispositivos móviles */
 const MenuMobile = () => {
   return (
