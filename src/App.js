@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import NavBar from './components/NavBar';
+import Header from './components/Header';
 import MenuMobile from './components/MenuMobile';
 import ItemListContainer from './components/ItemListContainer';
 import SearchBar from './components/SearchBar';
@@ -14,17 +14,25 @@ const App = () => {
   document.body.style.overflowY = isMenuOpen ? 'hidden' : 'unset';
 
   const handleIsMenuOpen = () => {
+    // Cerrar la barra de búsqueda cuando se hace click en el menú.
+    if (isSearchOpen) {
+      setSearchOpen(false);
+    }
+
     setMenuOpen(!isMenuOpen);
   };
 
   const handleIsSearchOpen = () => {
+    // No permitir que se la barra de búsqueda, si está abierto el menú.
+    if (isMenuOpen) return;
+
     setSearchOpen(!isSearchOpen);
   };
 
   return (
     <div className='App'>
       <div className='wrapper'>
-        <NavBar
+        <Header
           isMenuOpen={isMenuOpen}
           handleIsMenuOpen={handleIsMenuOpen}
           handleIsSearchOpen={handleIsSearchOpen}

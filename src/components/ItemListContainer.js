@@ -1,6 +1,6 @@
 const ItemListContainer = ({ greeting }) => {
   return (
-    <div style={{ paddingLeft: 30, paddingRight: 30 }}>
+    <div className='list-container'>
       <h2>{greeting}</h2>
     </div>
   );
