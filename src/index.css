@@ -12,6 +12,8 @@
   --black: #000;
   --white: #fff;
   --gray: #ccc;
+  --scrollbar-thumb: #e0e0e0;
+  --scrollbar-thumb-hover: #bfbfbf;
 }
 
 html {
@@ -257,6 +259,27 @@ button {
     position: fixed;
     left: 0;
     right: 0;
+  }
+
+  /* Estilos para el scrollbar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--white);
+  }
+
+  /* Thumb */
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+
+  /* Thumb cuando se hace hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
   }
 }
 
