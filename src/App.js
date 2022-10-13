@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
 import Header from './components/Header';
-import MenuMobile from './components/MenuMobile';
-import ItemListContainer from './components/ItemListContainer';
-import SearchBar from './components/SearchBar';
 import Hero from './components/Hero';
+import ItemListContainer from './components/ItemListContainer';
 
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -35,15 +33,13 @@ const App = () => {
       <div className='wrapper'>
         <Header
           isMenuOpen={isMenuOpen}
+          isSearchOpen={isSearchOpen}
           handleIsMenuOpen={handleIsMenuOpen}
           handleIsSearchOpen={handleIsSearchOpen}
           cartCount={cartCount}
         />
         <Hero />
       </div>
-
-      {isSearchOpen && <SearchBar />}
-      {isMenuOpen && <MenuMobile />}
 
       <ItemListContainer greeting='¡Bienvenido a Avalanche!' />
       {/* Botón provisorio para testear las notificaciones */}
