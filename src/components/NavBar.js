@@ -9,7 +9,12 @@ import MenuMobileButton from './MenuMobileButton';
 import MenuDesktop from './MenuDesktop';
 import Logo from './Logo';
 
-const NavBar = ({ isMenuOpen, handleIsMenuOpen, handleIsSearchOpen }) => {
+const NavBar = ({
+  isMenuOpen,
+  handleIsMenuOpen,
+  handleIsSearchOpen,
+  cartCount,
+}) => {
   return (
     <nav className='navbar'>
       <div className='navbar__left'>
@@ -30,7 +35,7 @@ const NavBar = ({ isMenuOpen, handleIsMenuOpen, handleIsSearchOpen }) => {
           onClick={handleIsSearchOpen}
         />
         <HeartIcon className='navbar-icon' />
-        <CartWidget />
+        <CartWidget cartCount={cartCount} />
       </div>
     </nav>
   );

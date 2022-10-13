@@ -9,6 +9,7 @@ import Hero from './components/Hero';
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   // Oculta el scrollbar cuando el menú está abierto en dispositivos móviles.
   document.body.style.overflowY = isMenuOpen ? 'hidden' : 'unset';
@@ -36,6 +37,7 @@ const App = () => {
           isMenuOpen={isMenuOpen}
           handleIsMenuOpen={handleIsMenuOpen}
           handleIsSearchOpen={handleIsSearchOpen}
+          cartCount={cartCount}
         />
         <Hero />
       </div>
@@ -44,6 +46,8 @@ const App = () => {
       {isMenuOpen && <MenuMobile />}
 
       <ItemListContainer greeting='¡Bienvenido a Avalanche!' />
+      {/* Botón provisorio para testear las notificaciones */}
+      <button onClick={() => setCartCount(cartCount + 1)}>Agregar</button>
     </div>
   );
 };

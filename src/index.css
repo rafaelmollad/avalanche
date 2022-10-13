@@ -142,6 +142,26 @@ button {
   stroke-width: 1.4;
 }
 
+/* Cart Widget */
+.cart-widget {
+  position: relative;
+}
+
+.cart-widget__notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  top: -4px;
+  right: -6px;
+  font-weight: 700;
+}
+
 .navbar__menu--desktop {
   display: none;
 }
