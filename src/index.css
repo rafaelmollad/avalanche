@@ -167,13 +167,6 @@ button {
 }
 
 /* Estilos para el search bar */
-.search-bar {
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 66px; /* Altura del header */
-}
-
 .search-bar__input {
   width: 100%;
   outline: none;
