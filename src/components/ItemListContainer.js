@@ -1,7 +1,11 @@
+import ProductList from './ProductList';
+
 const ItemListContainer = ({ greeting }) => {
   return (
     <div className='list-container'>
-      <h2>{greeting}</h2>
+      <ProductList category='Hombre' />
+      <ProductList category='Mujer' />
+      <ProductList category='Denim' />
     </div>
   );
 };

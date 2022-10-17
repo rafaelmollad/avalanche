@@ -10,7 +10,7 @@ const MenuMobile = () => {
           <a href='#'>Mujer</a>
         </li>
         <li className='menu-mobile-link'>
-          <a href='#'>Niños</a>
+          <a href='#'>Denim</a>
         </li>
       </ul>
     </div>
