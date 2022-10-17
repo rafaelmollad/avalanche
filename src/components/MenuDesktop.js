@@ -8,7 +8,7 @@ const MenuDesktop = () => {
         <a href='#'>Mujer</a>
       </li>
       <li className='navbar__link'>
-        <a href='#'>Niños</a>
+        <a href='#'>Denim</a>
       </li>
     </ul>
   );
