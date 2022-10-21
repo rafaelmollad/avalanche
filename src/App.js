@@ -41,7 +41,7 @@ const App = () => {
         <Hero />
       </div>
 
-      <ItemListContainer greeting='¡Bienvenido a Avalanche!' />
+      <ItemListContainer />
       {/* Botón provisorio para testear las notificaciones */}
       <button onClick={() => setCartCount(cartCount + 1)}>Agregar</button>
     </div>
