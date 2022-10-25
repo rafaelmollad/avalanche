@@ -6,12 +6,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 :root {
   --black: #000;
   --white: #fff;
   --gray: #ccc;
+  --gray2: #919191;
   --scrollbar-thumb: #e0e0e0;
   --scrollbar-thumb-hover: #bfbfbf;
 }
@@ -177,7 +179,7 @@ button {
 .search-bar__input {
   width: 100%;
   outline: none;
-  padding: 1rem 1.5rem;
+  padding: 1rem 4rem;
   border: 1px solid var(--gray);
   font-family: 'DM Sans', sans-serif;
   font-size: 1.3rem;
@@ -262,6 +264,67 @@ button {
 
 .item__name {
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/**********
+ * FOOTER *
+ **********/
+
+.footer {
+  margin-top: 2rem;
+}
+
+/* Footer top */
+.footer__top {
+  padding: 4rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.footer-top__logo {
+  margin-right: 0;
+  padding-bottom: 4rem;
+}
+
+/* Selecciona todos los menus, excepto el último */
+.footer-top__menu:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.footer-top__menu-title,
+.footer-top__menu-link {
+  margin-bottom: 1.5rem;
+}
+
+.footer-top__menu-title {
+  font-size: 1.4rem;
+}
+
+.footer-top__menu-link {
+  font-size: 1.2rem;
+}
+
+/* Footer bottom */
+.footer__bottom {
+  padding: 2rem 4rem;
+}
+
+.footer-bottom__left,
+.footer-bottom__right {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  color: var(--gray2);
+}
+
+.footer-bottom__left {
+  margin-bottom: 1rem;
+}
+
+.footer-bottom-right__tarjetas {
+  align-self: center;
 }
 
 /******************
@@ -359,6 +422,48 @@ button {
   .slider-list__link {
     font-size: 1.4rem;
   }
+
+  /* Footer */
+  .footer__top,
+  .footer__bottom {
+    display: flex;
+  }
+
+  .footer-top__menu,
+  .footer-top__logo {
+    flex: 1;
+  }
+
+  .footer-top__menu:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .footer-top__menu-title {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+
+  .footer-top__menu-link {
+    font-size: 1.3rem;
+  }
+
+  .footer-top__logo {
+    padding-bottom: 0;
+  }
+
+  .footer__bottom {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom__left {
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .footer-bottom-left__link {
+    margin-right: 1rem;
+  }
 }
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 850px */
@@ -424,6 +529,19 @@ button {
   /* Thumb cuando se hace hover */
   ::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover);
+  }
+
+  .footer-top__menu-link,
+  .footer-bottom-left__link {
+    transition: color 0.2s ease;
+  }
+
+  .footer-top__menu-link:hover {
+    color: var(--gray2);
+  }
+
+  .footer-bottom-left__link:hover {
+    color: var(--black);
   }
 }
 

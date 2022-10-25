@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ItemListContainer from './components/ItemListContainer';
+import Footer from './components/Footer';
 
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -43,7 +44,8 @@ const App = () => {
 
       <ItemListContainer />
       {/* Botón provisorio para testear las notificaciones */}
-      <button onClick={() => setCartCount(cartCount + 1)}>Agregar</button>
+      {/* <button onClick={() => setCartCount(cartCount + 1)}>Agregar</button> */}
+      <Footer />
     </div>
   );
 };
