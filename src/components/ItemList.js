@@ -5,7 +5,7 @@ const ItemList = ({ catalog }) => {
     <section className='item-list'>
       {/* Mapear los productos */}
       {catalog.map(({ id, title, price, imgUrl }) => (
-        <Item key={id} title={title} price={price} imgUrl={imgUrl} />
+        <Item key={id} id={id} title={title} price={price} imgUrl={imgUrl} />
       ))}
     </section>
   );

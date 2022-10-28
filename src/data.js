@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     title: 'Remera Eurythmics',
@@ -221,4 +221,26 @@ const products = [
   },
 ];
 
-export { products };
+export const getProducts = (categoryName) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Si estamos en una categoría, filtrar los productos por esa categoría, sino devolver todos los productos
+      if (categoryName) {
+        const filteredProducts = products.filter((product) =>
+          product.category.toLowerCase().includes(categoryName.toLowerCase())
+        );
+        resolve(filteredProducts);
+      }
+      resolve(products);
+    }, 2000);
+  });
+};
+
+export const getItem = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const item = products.find((product) => product.id === id);
+      resolve(item);
+    }, 2000);
+  });
+};

@@ -45,7 +45,7 @@ const Slider = ({ catalog, category }) => {
         {/* Mapear los productos filtrados */}
         {filteredCatalog.map(({ id, title, price, imgUrl }) => (
           <SwiperSlide key={id}>
-            <Item title={title} price={price} imgUrl={imgUrl} />
+            <Item id={id} title={title} price={price} imgUrl={imgUrl} />
           </SwiperSlide>
         ))}
       </Swiper>
