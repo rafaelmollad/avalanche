@@ -1,7 +1,9 @@
+import { NavLink } from 'react-router-dom';
+
 const Logo = ({ logoName, className }) => {
   return (
     <h2 className={`navbar__logo ${className}`}>
-      <a href='#'>{logoName}</a>
+      <NavLink to='/'>{logoName}</NavLink>
     </h2>
   );
 };
