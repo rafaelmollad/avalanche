@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { getItem } from '../data';
 import ItemDetail from './ItemDetail';
+import ItemDetailSkeleton from './ItemDetailSkeleton';
 
 const ItemDetailContainer = ({ onAdd }) => {
   const [item, setItem] = useState(null);
@@ -13,13 +14,15 @@ const ItemDetailContainer = ({ onAdd }) => {
   useEffect(() => {
     // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
     getItem(id)
-      .then((response) => setItem(response))
+      .then((response) => {
+        setItem(response);
+      })
       .catch((e) => console.log(e));
   }, [id]);
 
   return (
     <div className='item-detail-container'>
-      {item && (
+      {item ? (
         <ItemDetail
           title={item.title}
           description={item.description}
@@ -29,6 +32,8 @@ const ItemDetailContainer = ({ onAdd }) => {
           stock={item.stock}
           onAdd={onAdd}
         />
+      ) : (
+        <ItemDetailSkeleton />
       )}
     </div>
   );

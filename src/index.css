@@ -263,12 +263,12 @@ button {
   object-fit: cover;
 }
 
-.item__name,
+.item__title,
 .item__price {
   font-size: 1.1rem;
 }
 
-.item__name {
+.item__title {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -463,11 +463,81 @@ button {
   align-self: center;
 }
 
+/*************
+ * SKELETON  *
+ *************/
+
+/* Item skeleton */
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background: #f2f2f2;
+  }
+
+  100% {
+    background: #d0d0d0;
+  }
+}
+
+.item-skeleton__image {
+  margin-bottom: 1rem;
+}
+
+.item-skeleton__title,
+.item-skeleton__price {
+  height: 1.2rem;
+  border-radius: 0.05rem;
+}
+
+.item-skeleton__title {
+  height: 1.2rem;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.item-skeleton__price {
+  height: 1.2rem;
+  width: 20%;
+}
+
+/* ItemDetail skeleton */
+.item-detail-skeleton__image-container,
+.item-detail-skeleton__title,
+.item-detail-skeleton__price,
+.item-detail-skeleton__description {
+  margin-bottom: 1rem;
+}
+
+.item-detail-skeleton__image {
+  visibility: hidden;
+}
+
+.item-detail-skeleton__title {
+  height: 2rem;
+  width: 60%;
+}
+
+.item-detail-skeleton__price {
+  height: 2rem;
+  width: 30%;
+}
+
+.item-detail-skeleton__description {
+  height: 1rem;
+}
+
+.item-detail-skeleton__description:last-child {
+  width: 80%;
+}
+
 /******************
  * MEDIA-QUERIES  *
  ******************/
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 500px */
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 400px */
 @media screen and (min-width: 400px) {
   .item__image {
     height: 30rem;
@@ -511,7 +581,7 @@ button {
     font-size: 1.2rem;
   }
 
-  .item__name,
+  .item__title,
   .item__price {
     font-size: 1.2rem;
   }
@@ -616,6 +686,12 @@ button {
   .footer-bottom-left__link {
     margin-right: 1rem;
   }
+
+  /* Skeleton */
+  .item__title-skeleton,
+  .item__price-skeleton {
+    height: 1.6rem;
+  }
 }
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 850px */
@@ -625,7 +701,7 @@ button {
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 850px */
+/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 924px */
 @media screen and (min-width: 924px) {
   .item__image {
     height: 70rem;
@@ -642,7 +718,7 @@ button {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .item__name,
+  .item__title,
   .item__price {
     font-size: 1.4rem;
   }

@@ -8,7 +8,10 @@ import 'swiper/css/pagination';
 // Importar los módulos que vamos a usar de Swiper
 import { Pagination } from 'swiper';
 
+import { Link } from 'react-router-dom';
+
 import Item from './Item';
+import ItemSkeleton from './ItemSkeleton';
 
 const Slider = ({ catalog, category }) => {
   // Filtra el catálogo en base a la categoría que se le pase como argumento.
@@ -23,9 +26,9 @@ const Slider = ({ catalog, category }) => {
     <div className='slider-list'>
       <div className='slider-list__header'>
         <h2 className='slider-list__category'>{category}</h2>
-        <a href='#' className='slider-list__link'>
+        <Link to={`category/${category}`} className='slider-list__link'>
           Ver Todo
-        </a>
+        </Link>
       </div>
       <Swiper
         slidesPerView={2}
@@ -42,12 +45,20 @@ const Slider = ({ catalog, category }) => {
           },
         }}
       >
-        {/* Mapear los productos filtrados */}
-        {filteredCatalog.map(({ id, title, price, imgUrl }) => (
-          <SwiperSlide key={id}>
-            <Item id={id} title={title} price={price} imgUrl={imgUrl} />
-          </SwiperSlide>
-        ))}
+        {/* Mapear los productos filtrados o mostrar un skeleton loading */}
+        {catalog.length > 0
+          ? filteredCatalog.map(({ id, title, price, imgUrl }) => (
+              <SwiperSlide key={id}>
+                <Item id={id} title={title} price={price} imgUrl={imgUrl} />
+              </SwiperSlide>
+            ))
+          : Array(6)
+              .fill(<ItemSkeleton />)
+              .map((itemSkeleton, index) => (
+                <SwiperSlide key={index}>
+                  <ItemSkeleton />
+                </SwiperSlide>
+              ))}
       </Swiper>
     </div>
   );

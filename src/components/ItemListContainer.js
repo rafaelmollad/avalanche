@@ -3,31 +3,27 @@ import { useLocation, useParams } from 'react-router-dom';
 
 import ItemList from './ItemList';
 import Slider from './Slider';
-import { products, getProducts } from '../data';
+import { getProducts } from '../data';
 
 const ItemListContainer = () => {
   const [catalog, setCatalog] = useState([]);
 
   const { pathname } = useLocation();
-
   const { id } = useParams();
-  const useParamsValue = useParams();
-  console.log(useParamsValue);
-  console.log('CATEGORIA:', id);
 
   // Request para traer el catálogo...
   useEffect(() => {
     // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
     getProducts(id)
-      .then((response) => setCatalog(response))
+      .then((response) => {
+        setCatalog(response);
+      })
       .catch((e) => console.log(e));
   }, [id]);
 
-  console.log(pathname);
-
   return (
     <div className='list-container'>
-      {/* Mostrar 3 sliders si estamos en la homepage, else mostrar el ItemList*/}
+      {/* Mostrar 3 sliders si estamos en la página de inicio o el itemList si estamos en cualquier otra página */}
       {pathname === '/' ? (
         <>
           <Slider catalog={catalog} category='hombre' />

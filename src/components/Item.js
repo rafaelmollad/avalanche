@@ -7,7 +7,7 @@ const Item = ({ id, title, price, imgUrl }) => {
       <Link to={`/item/${id}`}>
         <img src={imgUrl} alt={title} className='item__image' />
         <div>
-          <span className='item__name'>{title}</span>
+          <span className='item__title'>{title}</span>
           <br />
           <span className='item__price'>{`$${price}`}</span>
         </div>

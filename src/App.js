@@ -13,7 +13,6 @@ const App = () => {
   const [cartCount, setCartCount] = useState(0);
 
   const { pathname } = useLocation();
-  console.log(pathname, typeof pathname);
 
   // Oculta el scrollbar cuando el menú está abierto en dispositivos móviles.
   document.body.style.overflowY = isMenuOpen ? 'hidden' : 'unset';
