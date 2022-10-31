@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Header from './components/Header';
@@ -13,6 +13,11 @@ const App = () => {
   const [cartCount, setCartCount] = useState(0);
 
   const { pathname } = useLocation();
+
+  // Cerrar el menú cuando se cambia de ruta
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   // Oculta el scrollbar cuando el menú está abierto en dispositivos móviles.
   document.body.style.overflowY = isMenuOpen ? 'hidden' : 'unset';
