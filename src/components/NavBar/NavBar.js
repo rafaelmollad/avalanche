@@ -7,7 +7,7 @@ import {
 import CartWidget from './CartWidget';
 import MenuMobileButton from './MenuMobileButton';
 import MenuDesktop from './MenuDesktop';
-import Logo from './Logo';
+import Logo from '../Logo/Logo';
 
 const NavBar = ({
   isMenuOpen,

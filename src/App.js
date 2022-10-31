@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ItemListContainer from './components/ItemListContainer';
-import Footer from './components/Footer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Footer from './components/Footer/Footer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -14,9 +14,10 @@ const App = () => {
 
   const { pathname } = useLocation();
 
-  // Cerrar el menú cuando se cambia de ruta
+  // Cerrar el menú cuando se cambia de ruta y hacer un scroll hacia la parte superior de la página
   useEffect(() => {
     setMenuOpen(false);
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   // Oculta el scrollbar cuando el menú está abierto en dispositivos móviles.

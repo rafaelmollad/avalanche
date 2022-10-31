@@ -10,8 +10,8 @@ import { Pagination } from 'swiper';
 
 import { Link } from 'react-router-dom';
 
-import Item from './Item';
-import ItemSkeleton from './ItemSkeleton';
+import Item from '../ItemListContainer/Item/Item';
+import ItemSkeleton from '../ItemListContainer/Item/ItemSkeleton';
 
 const Slider = ({ catalog, category }) => {
   // Filtra el catálogo en base a la categoría que se le pase como argumento.

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import NavBar from './NavBar';
-import SearchBar from './SearchBar';
-import MenuMobile from './MenuMobile';
+import NavBar from '../NavBar/NavBar';
+import SearchBar from '../SearchBar/SearchBar';
+import MenuMobile from '../NavBar/MenuMobile';
 
 function Header({
   isMenuOpen,

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
-import ItemList from './ItemList';
-import Slider from './Slider';
-import { getProducts } from '../data';
+import ItemList from './ItemList/ItemList';
+import Slider from '../Slider/Slider';
+import { getProducts } from '../../utils/mock';
 
 const ItemListContainer = () => {
   const [catalog, setCatalog] = useState([]);

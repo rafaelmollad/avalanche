@@ -1,6 +1,6 @@
 import React from 'react';
 
-import tarjetas from '../assets/tarjetas.png';
+import tarjetas from '../../assets/tarjetas.png';
 
 const FooterBottom = () => {
   return (

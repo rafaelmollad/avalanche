@@ -1,6 +1,6 @@
 import React from 'react';
 
-import product from '../assets/product.jpg';
+import product from '../../../assets/product.jpg';
 
 const ItemDetailSkeleton = () => {
   return (

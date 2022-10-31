@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getItem } from '../data';
-import ItemDetail from './ItemDetail';
-import ItemDetailSkeleton from './ItemDetailSkeleton';
+import { getItem } from '../../utils/mock';
+import ItemDetail from './ItemDetail/ItemDetail';
+import ItemDetailSkeleton from './ItemDetail/ItemDetailSkeleton';
 
 const ItemDetailContainer = ({ onAdd }) => {
   const [item, setItem] = useState(null);

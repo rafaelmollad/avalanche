@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Contador from './Contador';
-import Accordion from './Accordion';
+import Contador from '../../Contador/Contador';
+import Accordion from '../../Accordion/Accordion';
 
 const ItemDetail = ({
   title,

@@ -1,5 +1,5 @@
-import Item from './Item';
-import ItemSkeleton from './ItemSkeleton';
+import Item from '../Item/Item';
+import ItemSkeleton from '../Item/ItemSkeleton';
 
 const ItemList = ({ catalog }) => {
   return (
