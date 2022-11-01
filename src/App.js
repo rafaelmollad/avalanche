@@ -6,19 +6,22 @@ import Hero from './components/Hero/Hero';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import SearchResults from './components/SearchResults/SearchResults';
 
 const App = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
 
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
-  // Cerrar el menú cuando se cambia de ruta y hacer un scroll hacia la parte superior de la página
+  // Cerrar el menú y la barra de búsqueda cuando la ruta o el query string cambian.
+  // Mover la página al comienzo (0, 0)
   useEffect(() => {
-    setMenuOpen(false);
+    setIsMenuOpen(false);
+    setIsSearchOpen(false);
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, search]);
 
   // Oculta el scrollbar cuando el menú está abierto en dispositivos móviles.
   document.body.style.overflowY = isMenuOpen ? 'hidden' : 'unset';
@@ -26,17 +29,17 @@ const App = () => {
   const handleIsMenuOpen = () => {
     // Cerrar la barra de búsqueda cuando se hace click en el menú.
     if (isSearchOpen) {
-      setSearchOpen(false);
+      setIsSearchOpen(false);
     }
 
-    setMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const handleIsSearchOpen = () => {
     // No permitir que se la barra de búsqueda, si está abierto el menú.
     if (isMenuOpen) return;
 
-    setSearchOpen(!isSearchOpen);
+    setIsSearchOpen(!isSearchOpen);
   };
 
   // Esta función se ejecuta cuando se hace click en el botón agregar al carrito en el ItemDetail
@@ -75,6 +78,7 @@ const App = () => {
           path='/item/:id'
           element={<ItemDetailContainer onAdd={onAdd} />}
         />
+        <Route path='/search' element={<SearchResults />} />
       </Routes>
 
       <Footer />

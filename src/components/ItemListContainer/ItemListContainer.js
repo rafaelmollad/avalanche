@@ -14,11 +14,17 @@ const ItemListContainer = () => {
   // Request para traer el catálogo...
   useEffect(() => {
     // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
-    getProducts(id)
+    getProducts(id, undefined)
       .then((response) => {
         setCatalog(response);
       })
       .catch((e) => console.log(e));
+
+    // Cleanup function
+    return () => {
+      // Vaciar catálogo
+      setCatalog([]);
+    };
   }, [id]);
 
   return (

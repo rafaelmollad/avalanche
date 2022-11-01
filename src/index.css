@@ -534,6 +534,24 @@ button {
 }
 
 /******************
+ * SEARCH RESULTS *
+ ******************/
+
+.search-result {
+  padding: 0 4rem;
+}
+
+.search-result-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-result__image {
+  width: 30rem;
+}
+
+/******************
  * MEDIA-QUERIES  *
  ******************/
 
@@ -692,6 +710,11 @@ button {
   .item__price-skeleton {
     height: 1.6rem;
   }
+
+  /* Search result */
+  .search-result__image {
+    width: 40rem;
+  }
 }
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 850px */
@@ -725,6 +748,11 @@ button {
 
   .item__image {
     height: 55rem;
+  }
+
+  /* Search result */
+  .search-result__image {
+    width: 60rem;
   }
 }
 
