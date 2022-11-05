@@ -5,7 +5,7 @@ import { getItem } from '../../utils/mock';
 import ItemDetail from './ItemDetail/ItemDetail';
 import ItemDetailSkeleton from './ItemDetail/ItemDetailSkeleton';
 
-const ItemDetailContainer = ({ onAdd }) => {
+const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
 
   const id = Number(useParams().id);
@@ -22,19 +22,7 @@ const ItemDetailContainer = ({ onAdd }) => {
 
   return (
     <div className='item-detail-container'>
-      {item ? (
-        <ItemDetail
-          title={item.title}
-          description={item.description}
-          price={item.price}
-          imgUrl={item.imgUrl}
-          sku={item.sku}
-          stock={item.stock}
-          onAdd={onAdd}
-        />
-      ) : (
-        <ItemDetailSkeleton />
-      )}
+      {item ? <ItemDetail item={item} /> : <ItemDetailSkeleton />}
     </div>
   );
 };

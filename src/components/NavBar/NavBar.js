@@ -1,3 +1,6 @@
+import React, { useContext } from 'react';
+import { SearchContext } from '../../context/SearchContext';
+
 import {
   UserIcon,
   MagnifyingGlassIcon,
@@ -9,20 +12,14 @@ import MenuMobileButton from './MenuMobileButton';
 import MenuDesktop from './MenuDesktop';
 import Logo from '../Logo/Logo';
 
-const NavBar = ({
-  isMenuOpen,
-  handleIsMenuOpen,
-  handleIsSearchOpen,
-  cartCount,
-}) => {
+const NavBar = () => {
+  const { toggleSearch } = useContext(SearchContext);
+
   return (
     <nav className='navbar'>
       <div className='navbar__left'>
         {/* Este es el botón que se va a mostrar solamente en dispositivos móviles */}
-        <MenuMobileButton
-          isMenuOpen={isMenuOpen}
-          handleIsMenuOpen={handleIsMenuOpen}
-        />
+        <MenuMobileButton />
 
         <Logo logoName='Avalanche' />
 
@@ -32,10 +29,10 @@ const NavBar = ({
         <UserIcon className='navbar-icon' />
         <MagnifyingGlassIcon
           className='navbar-icon'
-          onClick={handleIsSearchOpen}
+          onClick={() => toggleSearch()}
         />
         <HeartIcon className='navbar-icon' />
-        <CartWidget cartCount={cartCount} />
+        <CartWidget />
       </div>
     </nav>
   );
