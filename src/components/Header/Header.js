@@ -1,24 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MenuContext } from '../../context/MenuContext';
+import { SearchContext } from '../../context/SearchContext';
 
 import NavBar from '../NavBar/NavBar';
 import SearchBar from '../SearchBar/SearchBar';
 import MenuMobile from '../NavBar/MenuMobile';
 
-function Header({
-  isMenuOpen,
-  isSearchOpen,
-  handleIsMenuOpen,
-  handleIsSearchOpen,
-  cartCount,
-}) {
+function Header() {
+  const { isMenuOpen } = useContext(MenuContext);
+  const { isSearchOpen } = useContext(SearchContext);
+
   return (
     <header className='header'>
-      <NavBar
-        isMenuOpen={isMenuOpen}
-        handleIsMenuOpen={handleIsMenuOpen}
-        handleIsSearchOpen={handleIsSearchOpen}
-        cartCount={cartCount}
-      />
+      <NavBar />
       {isSearchOpen && <SearchBar />}
       {isMenuOpen && <MenuMobile />}
     </header>

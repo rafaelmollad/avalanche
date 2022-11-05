@@ -18,12 +18,12 @@ const Contador = ({ stock, onAdd }) => {
     }
   };
 
-  const addToCart = () => {
-    // Agregué a este código para no permitir que un usuario haga click múltiples veces en agregar al carrito para el mismo producto.
-    if (newStock - quantity > -1) {
-      onAdd(quantity);
-      setNewStock(newStock - quantity);
-    }
+  const addItem = () => {
+    // // Agregué a este código para no permitir que un usuario haga click múltiples veces en agregar al carrito para el mismo producto.
+    // if (newStock - quantity > -1) {
+    //   setNewStock(newStock - quantity);
+    // }
+    onAdd(quantity);
   };
 
   return (
@@ -37,7 +37,7 @@ const Contador = ({ stock, onAdd }) => {
           +
         </button>
       </div>
-      <button className='contador__add-to-cart' onClick={addToCart}>
+      <button className='contador__add-to-cart' onClick={addItem}>
         Agregar al carrito
       </button>
     </div>

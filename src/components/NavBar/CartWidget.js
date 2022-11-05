@@ -1,20 +1,26 @@
+import React, { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 
-const CartWidget = ({ cartCount }) => {
-  // Cambiar el fontSize de la notificación de acuerdo al número de dígitos del número
-  const cartCountLength = cartCount.toString().length;
+const CartWidget = () => {
+  const { getTotalQuantity } = useContext(CartContext);
+
+  // Cambiar el fontSize de la notificación de acuerdo al número de dígitos de la cantidad
+  const quantity = getTotalQuantity();
+  const quantityLength = quantity.toString().length;
   const widgetNotificationStyles =
-    cartCountLength === 1 ? { fontSize: 12 } : { fontSize: 10 };
+    quantityLength === 1 ? { fontSize: 12 } : { fontSize: 10 };
 
   return (
     <span className='cart-widget'>
       {/* Sólo mostrar la notificación si hay algún producto en el carrito */}
-      {cartCount !== 0 && (
+      {quantity > 0 && (
         <span
           className='cart-widget__notification'
           style={widgetNotificationStyles}
         >
-          {cartCount}
+          {quantity}
         </span>
       )}
       <ShoppingBagIcon className='navbar-icon' />
