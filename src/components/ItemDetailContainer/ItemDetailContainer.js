@@ -18,6 +18,8 @@ const ItemDetailContainer = () => {
         setItem(response);
       })
       .catch((e) => console.log(e));
+
+    return () => setItem(null);
   }, [id]);
 
   return (

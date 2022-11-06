@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const Contador = ({ stock, onAdd }) => {
   const [quantity, setQuantity] = useState(1);
-  const [newStock, setNewStock] = useState(stock);
 
   // Permitir sumar mientras que el valor sea menor o igual que el stock
   const add = () => {
@@ -19,10 +18,6 @@ const Contador = ({ stock, onAdd }) => {
   };
 
   const addItem = () => {
-    // // Agregué a este código para no permitir que un usuario haga click múltiples veces en agregar al carrito para el mismo producto.
-    // if (newStock - quantity > -1) {
-    //   setNewStock(newStock - quantity);
-    // }
     onAdd(quantity);
   };
 

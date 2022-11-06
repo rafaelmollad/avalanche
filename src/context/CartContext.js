@@ -1,17 +1,24 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { pathname } = useLocation();
 
-  console.log(cart);
+  useEffect(() => {
+    setIsCartOpen(false);
+  }, [pathname]);
+
+  isCartOpen
+    ? (document.body.style.overflowY = 'hidden')
+    : (document.body.style.overflowY = 'unset');
 
   // Agregar producto al carrito
   const addToCart = (item, quantity) => {
     const { id } = item;
-
-    console.log('quantity is:', quantity);
 
     // Si el producto ya se agregó al carrito, actualizar la cantidad (siempre que sea menor que el stock)
     // Sino está en el carrito sólo lo agrego.
@@ -35,7 +42,12 @@ const CartProvider = ({ children }) => {
     return cart.some((item) => item.id === id);
   };
 
-  // funcion para sumar la cantidad de un mismo producto
+  // Función para sumar la cantidad de un mismo producto
+  const getItemTotal = (id) => {
+    const foundItem = cart.find((item) => item.id === id);
+
+    return foundItem.price * foundItem.quantity;
+  };
 
   //funcion para vaciar el carrito
   const emptyCart = () => {
@@ -45,7 +57,7 @@ const CartProvider = ({ children }) => {
   // funcion para eliminar un solo producto y actualizar el cart con el array filtrado
   const removeItem = (id) => {
     // Eliminar el item usando el id que se le pasa por parámetro
-    const filteredCart = cart.filter((item) => item.id === id);
+    const filteredCart = cart.filter((item) => item.id !== id);
     setCart(filteredCart);
   };
 
@@ -66,6 +78,15 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  // Cambiar el estado del carrito de abierto a cerrado y viceversa
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -75,6 +96,10 @@ const CartProvider = ({ children }) => {
         getTotal,
         getTotalQuantity,
         removeItem,
+        getItemTotal,
+        toggleCart,
+        closeCart,
+        isCartOpen,
       }}
     >
       {children}
