@@ -1,3 +1,4 @@
+// Importar librerias
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
@@ -8,6 +9,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Footer from './components/Footer/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import SearchResults from './components/SearchResults/SearchResults';
+import Cart from './components/Cart/Cart';
 
 // Importar context providers
 import MenuProvider from './context/MenuContext';
@@ -45,6 +47,8 @@ const App = () => {
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/search' element={<SearchResults />} />
         </Routes>
+
+        <Cart />
 
         <Footer />
       </CartProvider>

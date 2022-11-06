@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { formatPrice } from '../../../utils/helpers';
+
 const Item = ({ id, title, price, imgUrl }) => {
   return (
     <div>
@@ -9,7 +11,7 @@ const Item = ({ id, title, price, imgUrl }) => {
         <div>
           <span className='item__title'>{title}</span>
           <br />
-          <span className='item__price'>{`$${price}`}</span>
+          <span className='item__price'>{formatPrice(price)}</span>
         </div>
       </Link>
     </div>
