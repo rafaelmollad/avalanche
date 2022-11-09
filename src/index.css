@@ -686,6 +686,7 @@ button {
 }
 
 .cart-footer__btn {
+  width: 100%;
   background: var(--black);
   color: var(--white);
   height: 4.5rem;
@@ -694,6 +695,63 @@ button {
   font-size: 1.35rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+/************
+ * CHECKOUT *
+ ************/
+
+.checkout-form {
+  padding: 0 4rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.checkout-form__title {
+  margin-bottom: 2rem;
+}
+
+.checkout-form__billing-container {
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.input-container__label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.input-container__input,
+.input-container__select {
+  width: 100%;
+  height: 4rem;
+  font-family: 'DM sans', sans-serif;
+  border: 1px solid var(--gray);
+  padding-left: 1rem;
+}
+
+.input-container__input::placeholder {
+  color: var(--gray2);
+}
+
+.input-container__input:focus,
+.input-container__select:focus {
+  outline: none;
+}
+
+.checkout-form__btn {
+  background: var(--black);
+  color: var(--white);
+  width: 100%;
+  height: 4rem;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.1px;
   cursor: pointer;
 }
 
@@ -877,6 +935,17 @@ button {
   .search-result__image {
     width: 40rem;
   }
+
+  /* Checkout */
+  .checkout-form__billing-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  .checkout-form__btn {
+    width: calc(50% - 1rem);
+  }
 }
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 850px */
@@ -970,6 +1039,11 @@ button {
 
   .footer-bottom-left__link a:hover {
     color: var(--black);
+  }
+
+  /* Checkout */
+  .checkout-form {
+    padding-top: 6.88rem;
   }
 }
 

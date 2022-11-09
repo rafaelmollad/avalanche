@@ -5,6 +5,8 @@ import Accordion from '../../Accordion/Accordion';
 
 import { CartContext } from '../../../context/CartContext';
 
+import { formatPrice } from '../../../utils/helpers';
+
 const ItemDetail = ({ item }) => {
   const { addToCart } = useContext(CartContext);
 
@@ -24,7 +26,7 @@ const ItemDetail = ({ item }) => {
       <div className='item-detail__info detail-info'>
         <div className='detail-info__wrapper'>
           <h2 className='item-detail__title'>{title}</h2>
-          <p className='item-detail__price'>{`$${price}`}</p>
+          <p className='item-detail__price'>{formatPrice(price)}</p>
           <p className='item-detail__description'>{description}</p>
           <p className='item-detail__sku'>{`SKU: ${sku}`}</p>
           <Contador stock={stock} onAdd={onAdd} />
