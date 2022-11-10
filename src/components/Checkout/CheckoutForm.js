@@ -94,6 +94,7 @@ const CheckoutForm = () => {
           placeholder='Ingrese su DNI'
           register={register}
           errors={errors}
+          pattern={/^\d{2}\.?\d{3}\.?\d{3}$/g}
         />
       </div>
       <button className='checkout-form__btn'>Realizar Pedido</button>
