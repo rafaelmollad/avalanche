@@ -17,6 +17,7 @@
   --gray3: #898989;
   --scrollbar-thumb: #e0e0e0;
   --scrollbar-thumb-hover: #bfbfbf;
+  --red: #c00;
 }
 
 html {
@@ -646,11 +647,11 @@ button {
 }
 
 .cart-item__delete-item:hover {
-  color: #c00;
+  color: var(--red);
 }
 
 .cart-item__delete-item:hover::after {
-  background: #c00;
+  background: var(--red);
 }
 
 .cart-item__image-container {
@@ -730,6 +731,10 @@ button {
   font-family: 'DM sans', sans-serif;
   border: 1px solid var(--gray);
   padding-left: 1rem;
+}
+
+.input-container__input--error {
+  border: 1px solid var(--red);
 }
 
 .input-container__input::placeholder {
