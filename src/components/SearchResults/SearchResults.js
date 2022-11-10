@@ -16,11 +16,12 @@ const SearchResults = () => {
     // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
     getProducts(undefined, searchQuery)
       .then((response) => {
-        setIsLoading(false);
-        // setIsQueryValid(response.length > 0 ? true : false);
         setSearchResults(response);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e))
+      .finally(() => {
+        setIsLoading(false);
+      });
 
     // Cleanup function
     return () => {
