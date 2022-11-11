@@ -20,18 +20,10 @@ const CartProvider = ({ children }) => {
   const addToCart = (item, quantity) => {
     const { id } = item;
 
-    // Si el producto ya se agregó al carrito, actualizar la cantidad (siempre que sea menor que el stock)
+    // Si el producto ya se agregó al carrito, sobrescribir la cantidad
     // Sino está en el carrito sólo lo agrego.
     if (isItemInCart(id)) {
-      setCart(
-        cart.map((item) => {
-          if (item.id === id && item.quantity + quantity <= item.stock) {
-            return { ...item, quantity: item.quantity + quantity };
-          } else {
-            return item;
-          }
-        })
-      );
+      addQuantity(item, quantity);
     } else {
       setCart([...cart, { ...item, quantity }]);
     }
@@ -40,6 +32,21 @@ const CartProvider = ({ children }) => {
   // Chequear si el item ya se agregó al carrito
   const isItemInCart = (id) => {
     return cart.some((item) => item.id === id);
+  };
+
+  // Sobrescribir la cantidad actual con la nueva cantidad
+  const addQuantity = (item, quantity) => {
+    // Crear nuevo array de productos con la cantidad actualizada
+    const updatedCart = cart.map((itemInCart) => {
+      if (itemInCart.id === item.id) {
+        return { ...itemInCart, quantity };
+      } else {
+        return itemInCart;
+      }
+    });
+
+    // Actualizar el estado con el nuevo carrito
+    setCart(updatedCart);
   };
 
   // Función para sumar la cantidad de un mismo producto
@@ -87,6 +94,12 @@ const CartProvider = ({ children }) => {
     setIsCartOpen(false);
   };
 
+  // Encuentra un item basado en el id, y devuelve la cantidad
+  const getItemQuantity = (id) => {
+    const foundItem = cart.find((item) => item.id === id);
+    return foundItem?.quantity;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -100,6 +113,7 @@ const CartProvider = ({ children }) => {
         toggleCart,
         closeCart,
         isCartOpen,
+        getItemQuantity,
       }}
     >
       {children}

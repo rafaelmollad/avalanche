@@ -8,7 +8,7 @@ import { CartContext } from '../../../context/CartContext';
 import { formatPrice } from '../../../utils/helpers';
 
 const ItemDetail = ({ item }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, getItemQuantity } = useContext(CartContext);
 
   // Agregar product al carrito
   const onAdd = (quantity) => {
@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
   };
 
   // Hacer destructuring de item
-  const { title, description, price, imgUrl, sku, stock } = item;
+  const { id, title, description, price, imgUrl, sku, stock } = item;
 
   return (
     <div className='item-detail'>
@@ -29,7 +29,11 @@ const ItemDetail = ({ item }) => {
           <p className='item-detail__price'>{formatPrice(price)}</p>
           <p className='item-detail__description'>{description}</p>
           <p className='item-detail__sku'>{`SKU: ${sku}`}</p>
-          <Contador stock={stock} onAdd={onAdd} />
+          <Contador
+            stock={stock}
+            onAdd={onAdd}
+            initialQuantity={getItemQuantity(id)}
+          />
           <Accordion />
         </div>
       </div>
