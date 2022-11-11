@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Contador = ({ stock, onAdd }) => {
-  const [quantity, setQuantity] = useState(1);
+const Contador = ({ stock, onAdd, initialQuantity = 1 }) => {
+  const [quantity, setQuantity] = useState(initialQuantity);
 
-  // Permitir sumar mientras que el valor sea menor o igual que el stock
+  // Permitir sumar mientras que el valor sea menor que el stock
   const add = () => {
     if (quantity < stock) {
       setQuantity(quantity + 1);
