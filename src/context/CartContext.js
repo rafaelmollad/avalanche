@@ -112,6 +112,7 @@ const CartProvider = ({ children }) => {
         getItemTotal,
         toggleCart,
         closeCart,
+        isItemInCart,
         isCartOpen,
         getItemQuantity,
       }}

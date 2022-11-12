@@ -1,7 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const Contador = ({ stock, onAdd, initialQuantity = 1 }) => {
+const Contador = ({ stock, onAdd, initialQuantity = 1, isItemInCart }) => {
   const [quantity, setQuantity] = useState(initialQuantity);
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    // Si el item no está en el carrito (porque se eliminó), volver quantity a 1
+    // Este código se ejecuta solamente después del primer render porque ya se inicializa quantity en 1
+    if (isMounted.current) {
+      if (!isItemInCart) {
+        setQuantity(1);
+      }
+    } else {
+      isMounted.current = true;
+    }
+  }, [isItemInCart]);
 
   // Permitir sumar mientras que el valor sea menor que el stock
   const add = () => {

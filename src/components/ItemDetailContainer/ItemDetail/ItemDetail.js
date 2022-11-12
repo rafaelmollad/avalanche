@@ -8,7 +8,7 @@ import { CartContext } from '../../../context/CartContext';
 import { formatPrice } from '../../../utils/helpers';
 
 const ItemDetail = ({ item }) => {
-  const { addToCart, getItemQuantity } = useContext(CartContext);
+  const { addToCart, getItemQuantity, isItemInCart } = useContext(CartContext);
 
   // Agregar product al carrito
   const onAdd = (quantity) => {
@@ -33,6 +33,7 @@ const ItemDetail = ({ item }) => {
             stock={stock}
             onAdd={onAdd}
             initialQuantity={getItemQuantity(id)}
+            isItemInCart={isItemInCart(id)}
           />
           <Accordion />
         </div>
