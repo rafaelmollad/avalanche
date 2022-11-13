@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getItem } from '../../utils/mock';
+import { getItem } from '../../utils/helpers';
 import ItemDetail from './ItemDetail/ItemDetail';
 import ItemDetailSkeleton from './ItemDetail/ItemDetailSkeleton';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
 
-  const id = Number(useParams().id);
+  const id = useParams().id;
 
-  // Request para traer un item
   useEffect(() => {
-    // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
+    // Request para traer un item
     getItem(id)
-      .then((response) => {
-        setItem(response);
+      .then((item) => {
+        setItem(item);
       })
       .catch((e) => console.log(e));
 

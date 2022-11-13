@@ -192,7 +192,7 @@ export const products = [
     price: 16480,
     imgUrl:
       'https://res.cloudinary.com/dpvg9kfdq/image/upload/v1666372310/M-SKIRT-HIGH-CLASSIC-WHITE_ghcoct.jpg',
-    category: 'denim',
+    category: 'denim-mujer',
     stock: 5,
     sku: 'JM45062709-09',
   },
