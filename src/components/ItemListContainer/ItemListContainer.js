@@ -1,44 +1,36 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { query, where } from 'firebase/firestore';
+import { productsRef } from '../../services/fbConfig';
+import { getItems } from '../../utils/helpers';
 
 import ItemList from './ItemList/ItemList';
-import Slider from '../Slider/Slider';
-import { getProducts } from '../../utils/mock';
 
 const ItemListContainer = () => {
-  const [catalog, setCatalog] = useState([]);
-
-  const { pathname } = useLocation();
+  const [items, setItems] = useState([]);
   const { id } = useParams();
 
-  // Request para traer el catálogo...
   useEffect(() => {
-    // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
-    getProducts(id, undefined)
-      .then((response) => {
-        setCatalog(response);
-      })
-      .catch((e) => console.log(e));
+    // Traer todos los productos donde la categoría (id) se encuentre en el array categories
+    const q = query(productsRef, where('categories', 'array-contains', id));
+
+    // Request para traer los productos...
+    getItems(q)
+      .then((items) => setItems(items))
+      .catch((e) => {
+        console.log(e);
+      });
 
     // Cleanup function
     return () => {
       // Vaciar catálogo
-      setCatalog([]);
+      setItems([]);
     };
   }, [id]);
 
   return (
     <div className='list-container'>
-      {/* Mostrar 3 sliders si estamos en la página de inicio o el itemList si estamos en cualquier otra página */}
-      {pathname === '/' ? (
-        <>
-          <Slider catalog={catalog} category='hombre' />
-          <Slider catalog={catalog} category='mujer' />
-          <Slider catalog={catalog} category='denim' />
-        </>
-      ) : (
-        <ItemList catalog={catalog} />
-      )}
+      <ItemList items={items} />
     </div>
   );
 };

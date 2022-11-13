@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from '../ItemListContainer/ItemList/ItemList';
-import { getProducts } from '../../utils/mock';
 import { useSearchParams } from 'react-router-dom';
+import { query, where } from 'firebase/firestore';
+
+import { productsRef } from '../../services/fbConfig';
+import ItemList from '../ItemListContainer/ItemList/ItemList';
+import { getItems } from '../../utils/helpers';
 import notFound from '../../assets/not-found.png';
 
 const SearchResults = () => {
@@ -9,14 +12,19 @@ const SearchResults = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchParams] = useSearchParams();
-  const searchQuery = searchParams.get('query');
+  const searchQuery = searchParams.get('query').toLowerCase();
 
-  // Request para traer el catálogo...
   useEffect(() => {
-    // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
-    getProducts(undefined, searchQuery)
-      .then((response) => {
-        setSearchResults(response);
+    // Traer todos los productos donde el searchQuery se encuentra en el array searchTerms
+    const q = query(
+      productsRef,
+      where('searchTerms', 'array-contains', searchQuery)
+    );
+
+    // Request para traer los productos...
+    getItems(q)
+      .then((items) => {
+        setSearchResults(items);
       })
       .catch((e) => console.log(e))
       .finally(() => {
@@ -38,11 +46,11 @@ const SearchResults = () => {
       }`}
     >
       {/* Mostrar el ItemListSkeleton hasta que se tengan los resultados de la búsqueda */}
-      {isLoading && <ItemList catalog={[]} />}
+      {isLoading && <ItemList items={[]} />}
 
       {/* Si los resultados de la búsqueda son mayores que cero, mostramos los productos, sino mostramos una imagen */}
       {!isLoading && searchResults.length > 0 ? (
-        <ItemList catalog={searchResults} />
+        <ItemList items={searchResults} />
       ) : (
         <img
           src={notFound}

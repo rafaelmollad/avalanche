@@ -13,15 +13,7 @@ import { Link } from 'react-router-dom';
 import Item from '../ItemListContainer/Item/Item';
 import ItemSkeleton from '../ItemListContainer/Item/ItemSkeleton';
 
-const Slider = ({ catalog, category }) => {
-  // Filtra el catálogo en base a la categoría que se le pase como argumento.
-  // Devuleve los 6 primeros elementos filtrados
-  const filteredCatalog = catalog
-    .filter((item) =>
-      item.category.toLowerCase().includes(category.toLowerCase())
-    )
-    .slice(0, 6);
-
+const Slider = ({ items, category }) => {
   return (
     <div className='slider-list'>
       <div className='slider-list__header'>
@@ -46,8 +38,8 @@ const Slider = ({ catalog, category }) => {
         }}
       >
         {/* Mapear los productos filtrados o mostrar un skeleton loading */}
-        {catalog.length > 0
-          ? filteredCatalog.map(({ id, title, price, imgUrl }) => (
+        {items.length > 0
+          ? items.map(({ id, title, price, imgUrl }) => (
               <SwiperSlide key={id}>
                 <Item id={id} title={title} price={price} imgUrl={imgUrl} />
               </SwiperSlide>

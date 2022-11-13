@@ -4,7 +4,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Importar componentes
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
+import Home from './components/Home/Home';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -30,20 +30,12 @@ const App = () => {
       <CartProvider>
         <MenuProvider>
           <SearchProvider>
-            {/* Mostrar el header y el hero si estamos en la homepage o sólo el header si estamos en cualquier otra página */}
-            {pathname === '/' ? (
-              <div className='wrapper'>
-                <Header />
-                <Hero />
-              </div>
-            ) : (
-              <Header />
-            )}
+            <Header />
           </SearchProvider>
         </MenuProvider>
 
         <Routes>
-          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/' element={<Home />} />
           <Route path='/category/:id' element={<ItemListContainer />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/search' element={<SearchResults />} />
