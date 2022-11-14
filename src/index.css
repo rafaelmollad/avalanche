@@ -37,10 +37,8 @@ body {
   min-height: 100vh;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 30vh;
+.hero {
+  height: 25vh;
 }
 
 ul {
@@ -198,7 +196,6 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  flex: 1;
 }
 
 /*******************
@@ -800,8 +797,8 @@ button {
     margin-left: 1.5rem;
   }
 
-  .wrapper {
-    height: 45vh;
+  .hero {
+    height: 40vh;
   }
 
   .item__image {
@@ -840,10 +837,6 @@ button {
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 600px */
 @media screen and (min-width: 600px) {
-  .wrapper {
-    height: 50vh;
-  }
-
   .item__image {
     height: 50rem;
   }
@@ -862,10 +855,6 @@ button {
 
   .menu-mobile-container {
     display: none;
-  }
-
-  .wrapper {
-    height: 55vh;
   }
 
   .item__image {
@@ -981,7 +970,7 @@ button {
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1024px */
 @media screen and (min-width: 1024px) {
-  .wrapper {
+  .hero {
     height: 70vh;
   }
 
@@ -1006,7 +995,7 @@ button {
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1280px */
 @media screen and (min-width: 1280px) {
-  .wrapper {
+  .hero {
     height: 85vh;
   }
 
@@ -1066,7 +1055,7 @@ button {
 
 /* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1460px */
 @media screen and (min-width: 1460px) {
-  .wrapper {
+  .hero {
     height: 100vh;
   }
 }

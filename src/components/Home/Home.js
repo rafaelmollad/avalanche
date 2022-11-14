@@ -5,9 +5,7 @@ import Hero from '../Hero/Hero';
 const Home = () => {
   return (
     <div>
-      <div className='wrapper'>
-        <Hero />
-      </div>
+      <Hero />
       <Featured />
     </div>
   );
