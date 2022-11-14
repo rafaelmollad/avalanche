@@ -59,3 +59,34 @@ export const getDocuments = (arr) => {
     ...product.data(),
   }));
 };
+
+// Función para capitalizar sólo la primer letra y las letras seguidas de un punto.
+export const formatString = (str) => {
+  // Transformar la cadena a minúsculas y convertirla en un array de letras
+  const strArr = str.toLowerCase().split('');
+
+  let punto = false;
+
+  for (let i = 0; i < strArr.length; i++) {
+    // El caracter actual es un punto
+    if (strArr[i] === '.') {
+      punto = true;
+    }
+
+    // El caracter actual es una letra
+    else if (strArr[i].match(/[a-z]/i)) {
+      // Si es el primer caracter o si ya se leyó un punto previamente, capitalizar el caracter actual
+      if (i === 0 || punto) {
+        strArr[i] = strArr[i].toUpperCase();
+        punto = false;
+      }
+    }
+
+    // El caracter actual no es ni un punto ni una letra
+    else {
+      continue;
+    }
+  }
+
+  return strArr.join('');
+};
