@@ -11,6 +11,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import SearchResults from './components/SearchResults/SearchResults';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
+import Confirmation from './components/Confirmation/Confirmation';
 
 // Importar context providers
 import MenuProvider from './context/MenuContext';
@@ -40,6 +41,7 @@ const App = () => {
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/search' element={<SearchResults />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path='/checkout/:confirmation' element={<Confirmation />} />
         </Routes>
 
         <Cart />
