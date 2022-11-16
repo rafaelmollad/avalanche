@@ -8,6 +8,9 @@ const Input = ({
   register,
   errors,
   pattern,
+  validate,
+  number,
+  maxLength,
 }) => {
   return (
     <div className='input-container'>
@@ -16,7 +19,7 @@ const Input = ({
       </label>
 
       <input
-        type='text'
+        type={number ? 'number' : 'text'}
         className={`input-container__input ${
           errors[fieldName] ? 'input-container__input--error' : ''
         }`}
@@ -24,6 +27,8 @@ const Input = ({
         {...register(fieldName, {
           required,
           pattern,
+          validate,
+          maxLength,
         })}
       />
     </div>

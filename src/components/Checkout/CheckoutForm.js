@@ -1,22 +1,67 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { addDoc, serverTimestamp } from 'firebase/firestore';
 
 import Input from './Input';
 import Select from './Select';
 import { provincias } from '../../utils/provincias';
+import {
+  nameRegex,
+  emailRegex,
+  phoneRegex,
+  dniRegex,
+} from '../../utils/helpers';
+import { useNavigate } from 'react-router-dom';
+import { ordersRef } from '../../services/fbConfig';
+import { CartContext } from '../../context/CartContext';
 
 const CheckoutForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { cart, getTotal, emptyCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    alert(
-      `Tu pedido se realizó correctamente ${data.nombre}. ¡Gracias por tu compra!`
-    );
+    // Se hizo click en realizar pedido, cambiar el estado de loading a true
+    setIsLoading(true);
+
+    // Crear la orden
+    const order = {
+      buyer: data,
+      items: cart.map((item) => {
+        // Agrego cada item en el carrito sin las propiedades categories y searchTerms
+        const { categories, searchTerms, ...filteredItem } = item;
+        return filteredItem;
+      }),
+      total: getTotal(),
+      date: serverTimestamp(),
+    };
+
+    // Enviar la orden a Firebase
+    addDoc(ordersRef, order)
+      .then((res) => {
+        emptyCart();
+        navigate('/checkout/success', {
+          replace: true,
+          state: { name: data.nombre, orderId: res.id },
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        // Acá no estoy vaciando el carrito para evitar que el usuario tenga que volver a agregar todos los items de nuevo
+        navigate('/checkout/error', {
+          replace: true,
+        });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -28,25 +73,37 @@ const CheckoutForm = () => {
           fieldName='nombre'
           register={register}
           errors={errors}
+          pattern={nameRegex}
         />
         <Input
           label='Apellidos'
           fieldName='apellidos'
           register={register}
           errors={errors}
+          pattern={nameRegex}
         />
         <Input
           label='E-mail'
           fieldName='email'
           register={register}
           errors={errors}
-          pattern={/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g}
+          pattern={emailRegex}
+        />
+        <Input
+          label='Confirmar e-mail'
+          fieldName='email-confirmation'
+          register={register}
+          errors={errors}
+          pattern={emailRegex}
+          validate={(value) => value === getValues('email')}
         />
         <Input
           label='Teléfono'
           fieldName='telefono'
           register={register}
           errors={errors}
+          number={true}
+          pattern={phoneRegex}
         />
         <Input
           label='Calle'
@@ -54,6 +111,7 @@ const CheckoutForm = () => {
           placeholder='Nombre de la calle'
           register={register}
           errors={errors}
+          pattern={nameRegex}
         />
         <Input
           label='Altura'
@@ -61,6 +119,8 @@ const CheckoutForm = () => {
           placeholder='Número de la casa'
           register={register}
           errors={errors}
+          number={true}
+          maxLength={5}
         />
         <Input
           label='Piso, departamento (opcional)'
@@ -74,6 +134,7 @@ const CheckoutForm = () => {
           fieldName='localidad'
           register={register}
           errors={errors}
+          pattern={nameRegex}
         />
         <Select
           data={provincias}
@@ -91,13 +152,19 @@ const CheckoutForm = () => {
         <Input
           label='Documento'
           fieldName='documento'
-          placeholder='Ingrese su DNI'
+          placeholder='Ingrese su DNI sin puntos'
           register={register}
           errors={errors}
-          pattern={/^\d{2}\.?\d{3}\.?\d{3}$/g}
+          number={true}
+          pattern={dniRegex}
         />
       </div>
-      <button className='checkout-form__btn'>Realizar Pedido</button>
+      <button
+        className='checkout-form__btn'
+        disabled={isLoading || !cart.length}
+      >
+        {isLoading ? 'Enviando Pedido...' : 'Realizar Pedido'}
+      </button>
     </form>
   );
 };
