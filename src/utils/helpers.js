@@ -14,8 +14,14 @@ export const formatPrice = (number) => {
 
 export const getItems = async (query) => {
   try {
-    const response = await getDocs(query);
-    const items = getDocuments(response);
+    const querySnapshot = await getDocs(query);
+
+    // Si no hay documentos, devolver array vacío
+    if (querySnapshot.docs.length === 0) {
+      return [];
+    }
+
+    const items = getDocuments(querySnapshot);
 
     return items;
   } catch (e) {
@@ -43,11 +49,16 @@ export const getItemsArray = async (queries) => {
 
 export const getItem = async (id) => {
   try {
-    const ref = doc(productsRef, id);
+    const docRef = doc(productsRef, id);
 
-    const response = await getDoc(ref);
+    const docSnap = await getDoc(docRef);
 
-    return { id: response.id, ...response.data() };
+    if (docSnap.exists()) {
+      return { id: docSnap.id, ...docSnap.data() };
+    }
+
+    // El item no existe en la base de datos
+    return null;
   } catch (e) {
     throw new Error(e.message);
   }

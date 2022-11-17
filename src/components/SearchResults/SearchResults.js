@@ -4,8 +4,8 @@ import { query, where } from 'firebase/firestore';
 
 import { productsRef } from '../../services/fbConfig';
 import ItemList from '../ItemListContainer/ItemList/ItemList';
+import NotFound from '../NotFound/NotFound';
 import { getItems } from '../../utils/helpers';
-import notFound from '../../assets/not-found.png';
 
 const SearchResults = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -40,11 +40,7 @@ const SearchResults = () => {
   }, [searchQuery]);
 
   return (
-    <div
-      className={`search-result ${
-        !isLoading && searchResults.length === 0 && 'search-result-center'
-      }`}
-    >
+    <div className='search-result'>
       {/* Mostrar el ItemListSkeleton hasta que se tengan los resultados de la búsqueda */}
       {isLoading && <ItemList items={[]} />}
 
@@ -52,11 +48,7 @@ const SearchResults = () => {
       {!isLoading && searchResults.length > 0 ? (
         <ItemList items={searchResults} />
       ) : (
-        <img
-          src={notFound}
-          className='search-result__image'
-          alt='Caricatura de persona encogida de hombros'
-        />
+        <NotFound />
       )}
     </div>
   );

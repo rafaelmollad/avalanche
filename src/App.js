@@ -12,6 +12,7 @@ import SearchResults from './components/SearchResults/SearchResults';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import Confirmation from './components/Confirmation/Confirmation';
+import NotFound from './components/NotFound/NotFound';
 
 import { CartContext } from './context/CartContext';
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path='/search' element={<SearchResults />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/checkout/:confirmation' element={<Confirmation />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
       {/* Mostrar el carrito sólo si está abierto */}

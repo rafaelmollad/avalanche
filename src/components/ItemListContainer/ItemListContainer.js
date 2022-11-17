@@ -5,9 +5,11 @@ import { productsRef } from '../../services/fbConfig';
 import { getItems } from '../../utils/helpers';
 
 import ItemList from './ItemList/ItemList';
+import NotFound from '../NotFound/NotFound';
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
+  const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,7 +18,9 @@ const ItemListContainer = () => {
 
     // Request para traer los productos...
     getItems(q)
-      .then((items) => setItems(items))
+      .then((items) => {
+        items.length ? setItems(items) : setNotFound(true);
+      })
       .catch((e) => {
         console.log(e);
       });
@@ -27,6 +31,10 @@ const ItemListContainer = () => {
       setItems([]);
     };
   }, [id]);
+
+  if (notFound) {
+    return <NotFound />;
+  }
 
   return (
     <div className='list-container'>

@@ -565,13 +565,17 @@ button {
   padding: 0 4rem;
 }
 
-.search-result-center {
+/*************
+ * NOT FOUND *
+ *************/
+
+.not-found {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.search-result__image {
+.not-found__image {
   width: 30rem;
 }
 
@@ -1055,8 +1059,8 @@ button {
     flex: 1 1;
   }
 
-  /* Search result */
-  .search-result__image {
+  /* Not Found */
+  .not-found__image {
     width: 40rem;
   }
 
@@ -1105,8 +1109,8 @@ button {
     height: 55rem;
   }
 
-  /* Search result */
-  .search-result__image {
+  /* Not Found */
+  .not-found__image {
     width: 60rem;
   }
 }
