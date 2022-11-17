@@ -12,6 +12,7 @@ Mi proyecto final para el curso de React de CoderHouse.
 ## Tecnologías utilizadas
 
 - React
+- React Router
 - Firebase
 - React Hook Form
 - Git y GitHub
