@@ -14,9 +14,9 @@ const Confirmation = () => {
   const success = useParams().confirmation === 'success' ? true : false;
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflowY = 'hidden';
     return () => {
-      document.body.style.overflow = 'visible';
+      document.body.style.overflowY = 'visible';
     };
   }, []);
 

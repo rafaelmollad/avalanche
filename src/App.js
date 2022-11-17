@@ -1,5 +1,5 @@
 // Importar librerias
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Importar componentes
@@ -13,13 +13,11 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import Confirmation from './components/Confirmation/Confirmation';
 
-// Importar context providers
-import MenuProvider from './context/MenuContext';
-import SearchProvider from './context/SearchContext';
-import CartProvider from './context/CartContext';
+import { CartContext } from './context/CartContext';
 
 const App = () => {
   const { pathname, search } = useLocation();
+  const { isCartOpen } = useContext(CartContext);
 
   // Mover la página al comienzo (0, 0) cuando la ruta o el query string cambian.
   useEffect(() => {
@@ -28,26 +26,21 @@ const App = () => {
 
   return (
     <div className='App'>
-      <CartProvider>
-        <MenuProvider>
-          <SearchProvider>
-            <Header />
-          </SearchProvider>
-        </MenuProvider>
+      <Header />
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/category/:id' element={<ItemListContainer />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-          <Route path='/search' element={<SearchResults />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/checkout/:confirmation' element={<Confirmation />} />
-        </Routes>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/category/:id' element={<ItemListContainer />} />
+        <Route path='/item/:id' element={<ItemDetailContainer />} />
+        <Route path='/search' element={<SearchResults />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/checkout/:confirmation' element={<Confirmation />} />
+      </Routes>
 
-        <Cart />
+      {/* Mostrar el carrito sólo si está abierto */}
+      {isCartOpen && <Cart />}
 
-        <Footer />
-      </CartProvider>
+      <Footer />
     </div>
   );
 };

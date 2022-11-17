@@ -12,10 +12,6 @@ const CartProvider = ({ children }) => {
     setIsCartOpen(false);
   }, [pathname]);
 
-  isCartOpen
-    ? (document.body.style.overflowY = 'hidden')
-    : (document.body.style.overflowY = 'unset');
-
   // Agregar producto al carrito
   const addToCart = (item, quantity) => {
     const { id } = item;

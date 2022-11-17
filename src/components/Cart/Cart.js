@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 import CartHeader from './CartHeader';
@@ -7,6 +7,13 @@ import CartFooter from './CartFooter';
 
 const Cart = () => {
   const { cart, closeCart, isCartOpen } = useContext(CartContext);
+
+  useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+    return () => {
+      document.body.style.overflowY = 'visible';
+    };
+  }, []);
 
   return (
     <>
