@@ -2,7 +2,6 @@ import React from 'react';
 
 import App from '../../App';
 
-// Importar context providers
 import MenuProvider from '../../context/MenuContext';
 import SearchProvider from '../../context/SearchContext';
 import CartProvider from '../../context/CartContext';

@@ -1,11 +1,7 @@
 import React, { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';
 
-import {
-  UserIcon,
-  MagnifyingGlassIcon,
-  HeartIcon,
-} from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 import CartWidget from './CartWidget';
 import MenuMobileButton from './MenuMobileButton';
@@ -18,7 +14,6 @@ const NavBar = () => {
   return (
     <nav className='navbar'>
       <div className='navbar__left'>
-        {/* Este es el botón que se va a mostrar solamente en dispositivos móviles */}
         <MenuMobileButton />
 
         <Logo logoName='Avalanche' />
@@ -26,12 +21,10 @@ const NavBar = () => {
         <MenuDesktop />
       </div>
       <div className='navbar__right'>
-        {/* <UserIcon className='navbar-icon' /> */}
         <MagnifyingGlassIcon
           className='navbar-icon'
           onClick={() => toggleSearch()}
         />
-        {/* <HeartIcon className='navbar-icon' /> */}
         <CartWidget />
       </div>
     </nav>

@@ -13,10 +13,8 @@ const ItemDetailContainer = () => {
   const id = useParams().id;
 
   useEffect(() => {
-    // Request para traer un item
     getItem(id)
       .then((item) => {
-        // Si el item existe, actualizo el estado del item, sino actualizo el estado de notFound
         item ? setItem(item) : setNotFound(true);
       })
       .catch((e) => console.log(e));
@@ -24,7 +22,6 @@ const ItemDetailContainer = () => {
     return () => setItem(null);
   }, [id]);
 
-  // Si el item no se encontró renderizar el componente NotFound
   if (notFound) {
     return <NotFound />;
   }

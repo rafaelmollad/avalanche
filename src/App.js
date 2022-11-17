@@ -1,8 +1,6 @@
-// Importar librerias
 import { useEffect, useContext } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-// Importar componentes
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -20,7 +18,6 @@ const App = () => {
   const { pathname, search } = useLocation();
   const { isCartOpen } = useContext(CartContext);
 
-  // Mover la página al comienzo (0, 0) cuando la ruta o el query string cambian.
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname, search]);
@@ -39,7 +36,6 @@ const App = () => {
         <Route path='*' element={<NotFound />} />
       </Routes>
 
-      {/* Mostrar el carrito sólo si está abierto */}
       {isCartOpen && <Cart />}
 
       <Footer />

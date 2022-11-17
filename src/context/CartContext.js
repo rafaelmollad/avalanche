@@ -12,12 +12,9 @@ const CartProvider = ({ children }) => {
     setIsCartOpen(false);
   }, [pathname]);
 
-  // Agregar producto al carrito
   const addToCart = (item, quantity) => {
     const { id } = item;
 
-    // Si el producto ya se agregó al carrito, sobrescribir la cantidad
-    // Sino está en el carrito sólo lo agrego.
     if (isItemInCart(id)) {
       addQuantity(item, quantity);
     } else {
@@ -25,14 +22,11 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  // Chequear si el item ya se agregó al carrito
   const isItemInCart = (id) => {
     return cart.some((item) => item.id === id);
   };
 
-  // Sobrescribir la cantidad actual con la nueva cantidad
   const addQuantity = (item, quantity) => {
-    // Crear nuevo array de productos con la cantidad actualizada
     const updatedCart = cart.map((itemInCart) => {
       if (itemInCart.id === item.id) {
         return { ...itemInCart, quantity };
@@ -41,30 +35,24 @@ const CartProvider = ({ children }) => {
       }
     });
 
-    // Actualizar el estado con el nuevo carrito
     setCart(updatedCart);
   };
 
-  // Función para sumar la cantidad de un mismo producto
   const getItemTotal = (id) => {
     const foundItem = cart.find((item) => item.id === id);
 
     return foundItem.price * foundItem.quantity;
   };
 
-  //funcion para vaciar el carrito
   const emptyCart = () => {
     setCart([]);
   };
 
-  // funcion para eliminar un solo producto y actualizar el cart con el array filtrado
   const removeItem = (id) => {
-    // Eliminar el item usando el id que se le pasa por parámetro
     const filteredCart = cart.filter((item) => item.id !== id);
     setCart(filteredCart);
   };
 
-  // Función que devuelve el total de todos los productos en el carrito
   const getTotal = () => {
     return cart.reduce(
       (accumulator, currentItem) =>
@@ -73,7 +61,6 @@ const CartProvider = ({ children }) => {
     );
   };
 
-  // Función para sumar unidades totales del carrito (CartWidget)
   const getTotalQuantity = () => {
     return cart.reduce(
       (accumulator, currentItem) => accumulator + currentItem.quantity,
@@ -81,7 +68,6 @@ const CartProvider = ({ children }) => {
     );
   };
 
-  // Cambiar el estado del carrito de abierto a cerrado y viceversa
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
@@ -90,7 +76,6 @@ const CartProvider = ({ children }) => {
     setIsCartOpen(false);
   };
 
-  // Encuentra un item basado en el id, y devuelve la cantidad
   const getItemQuantity = (id) => {
     const foundItem = cart.find((item) => item.id === id);
     return foundItem?.quantity;

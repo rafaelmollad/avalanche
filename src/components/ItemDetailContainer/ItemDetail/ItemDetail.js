@@ -10,12 +10,10 @@ import { formatPrice, formatString } from '../../../utils/helpers';
 const ItemDetail = ({ item }) => {
   const { addToCart, getItemQuantity, isItemInCart } = useContext(CartContext);
 
-  // Agregar product al carrito
   const onAdd = (quantity) => {
     addToCart(item, quantity);
   };
 
-  // Hacer destructuring de item
   const { id, title, description, price, imgUrl, sku, stock } = item;
 
   return (

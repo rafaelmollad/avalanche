@@ -1,7 +1,6 @@
 import { getDoc, getDocs, doc } from 'firebase/firestore';
 import { productsRef } from '../services/fbConfig';
 
-// Formatear los precios a moneda argentina, elimina el espacio entre el símbolo peso y el precio
 export const formatPrice = (number) => {
   return new Intl.NumberFormat('es-ar', {
     style: 'currency',
@@ -16,7 +15,6 @@ export const getItems = async (query) => {
   try {
     const querySnapshot = await getDocs(query);
 
-    // Si no hay documentos, devolver array vacío
     if (querySnapshot.docs.length === 0) {
       return [];
     }
@@ -57,7 +55,6 @@ export const getItem = async (id) => {
       return { id: docSnap.id, ...docSnap.data() };
     }
 
-    // El item no existe en la base de datos
     return null;
   } catch (e) {
     throw new Error(e.message);
@@ -71,30 +68,20 @@ export const getDocuments = (arr) => {
   }));
 };
 
-// Función para capitalizar sólo la primer letra y las letras seguidas de un punto.
 export const formatString = (str) => {
-  // Transformar la cadena a minúsculas y convertirla en un array de letras
   const strArr = str.toLowerCase().split('');
 
   let punto = false;
 
   for (let i = 0; i < strArr.length; i++) {
-    // El caracter actual es un punto
     if (strArr[i] === '.') {
       punto = true;
-    }
-
-    // El caracter actual es una letra
-    else if (strArr[i].match(/[a-z]/i)) {
-      // Si es el primer caracter o si ya se leyó un punto previamente, capitalizar el caracter actual
+    } else if (strArr[i].match(/[a-z]/i)) {
       if (i === 0 || punto) {
         strArr[i] = strArr[i].toUpperCase();
         punto = false;
       }
-    }
-
-    // El caracter actual no es ni un punto ni una letra
-    else {
+    } else {
       continue;
     }
   }
@@ -102,7 +89,6 @@ export const formatString = (str) => {
   return strArr.join('');
 };
 
-/* Expresiones regulares */
 export const nameRegex =
   /^([A-Za-zÑñÁáÉéÍíÓóÚú]+['\-]{0,1}[A-Za-zÑñÁáÉéÍíÓóÚú]+)(\s+([A-Za-zÑñÁáÉéÍíÓóÚú]+['\-]{0,1}[A-Za-zÑñÁáÉéÍíÓóÚú]+))*$/;
 

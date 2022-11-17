@@ -104,14 +104,12 @@ button {
   letter-spacing: 1px;
 }
 
-/* Enlaces del navbar */
 .navbar__link {
   font-size: 1.5rem;
   letter-spacing: 2.5px;
   margin-right: 1rem;
 }
 
-/* Estilos para el menú que aparece en dispositivos móviles */
 .menu-mobile-container {
   display: flex;
   justify-content: center;
@@ -138,7 +136,6 @@ button {
   font-size: 1.4rem;
 }
 
-/* Hamburger menu y close icon, solo aparece en dispositivos móviles */
 .navbar__hamburger-icon,
 .navbar__close-icon {
   position: relative;
@@ -161,7 +158,6 @@ button {
   stroke-width: 1.4;
 }
 
-/* Cart Widget */
 .cart-widget {
   position: relative;
 }
@@ -186,7 +182,6 @@ button {
   display: none;
 }
 
-/* Estilos para el search bar */
 .search-bar {
   position: absolute;
   left: 0;
@@ -228,13 +223,12 @@ button {
   grid-gap: 5px;
 }
 
-/* Slider */
 .slider-list {
   margin: 1rem 0;
 }
 
 .swiper-pagination-progressbar-fill {
-  background: var(--black) !important; /* Cambiar esto */
+  background: var(--black) !important;
 }
 
 .slider-list__header {
@@ -339,8 +333,6 @@ button {
 }
 
 /* Contador */
-.contador {
-}
 
 .contador__controls {
   display: inline-flex;
@@ -374,7 +366,6 @@ button {
   text-align: center;
 }
 
-/* Botón agregar al carrito */
 .contador__add-to-cart {
   background: var(--black);
   color: var(--white);
@@ -392,10 +383,6 @@ button {
 /* Accordion */
 .accordion {
   border-bottom: 1px solid var(--black);
-}
-
-.accordion__item {
-  /* cursor: pointer; */
 }
 
 .accordion__title {
@@ -605,7 +592,6 @@ button {
   font-size: 1.5rem;
 }
 
-/* Cart header */
 .cart__header {
   display: flex;
   justify-content: space-between;
@@ -618,7 +604,6 @@ button {
   cursor: pointer;
 }
 
-/* Cart body */
 .cart__body {
   padding: 0 2rem;
   overflow-y: scroll;
@@ -636,7 +621,6 @@ button {
   border-bottom: none;
 }
 
-/* Contenedor para la información del item */
 .cart-item__info-container {
   flex: 1;
 }
@@ -910,14 +894,12 @@ button {
  * MEDIA-QUERIES  *
  ******************/
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 400px */
 @media screen and (min-width: 400px) {
   .item__image {
     height: 30rem;
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 500px */
 @media screen and (min-width: 500px) {
   .navbar__logo {
     font-size: 2rem;
@@ -989,14 +971,12 @@ button {
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 600px */
 @media screen and (min-width: 600px) {
   .item__image {
     height: 50rem;
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 768px */
 @media screen and (min-width: 768px) {
   .navbar__menu--desktop {
     display: flex;
@@ -1117,21 +1097,18 @@ button {
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 850px */
 @media screen and (min-width: 850px) {
   .item__image {
     height: 60rem;
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 924px */
 @media screen and (min-width: 924px) {
   .item__image {
     height: 70rem;
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1024px */
 @media screen and (min-width: 1024px) {
   .hero {
     height: 70vh;
@@ -1156,7 +1133,6 @@ button {
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1280px */
 @media screen and (min-width: 1280px) {
   .hero {
     height: 85vh;
@@ -1216,7 +1192,6 @@ button {
   }
 }
 
-/* Estos estilos se van a aplicar en dispositivos con un ancho mínimo de 1460px */
 @media screen and (min-width: 1460px) {
   .hero {
     height: 100vh;

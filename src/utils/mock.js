@@ -224,7 +224,6 @@ export const products = [
 export const getProducts = (categoryName, searchQuery) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      // Si existe una categoria o un searchQuery, utilizarlos para filtrar los productos
       if (categoryName || searchQuery) {
         const [filter, filterValue] = categoryName
           ? ['category', categoryName]
@@ -234,11 +233,9 @@ export const getProducts = (categoryName, searchQuery) => {
           product[filter].toLowerCase().includes(filterValue.toLowerCase())
         );
 
-        // Devolver los productos filtrados por categoría o por el searchQuery
         resolve(filteredProducts);
       }
 
-      // Devolver todos los productos
       resolve(products);
     }, 2000);
   });

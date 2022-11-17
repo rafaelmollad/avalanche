@@ -15,13 +15,11 @@ const SearchResults = () => {
   const searchQuery = searchParams.get('query').toLowerCase();
 
   useEffect(() => {
-    // Traer todos los productos donde el searchQuery se encuentra en el array searchTerms
     const q = query(
       productsRef,
       where('searchTerms', 'array-contains', searchQuery)
     );
 
-    // Request para traer los productos...
     getItems(q)
       .then((items) => {
         setSearchResults(items);
@@ -31,9 +29,7 @@ const SearchResults = () => {
         setIsLoading(false);
       });
 
-    // Cleanup function
     return () => {
-      // Vaciar catálogo
       setSearchResults([]);
       setIsLoading(true);
     };
@@ -41,10 +37,8 @@ const SearchResults = () => {
 
   return (
     <div className='search-result'>
-      {/* Mostrar el ItemListSkeleton hasta que se tengan los resultados de la búsqueda */}
       {isLoading && <ItemList items={[]} />}
 
-      {/* Si los resultados de la búsqueda son mayores que cero, mostramos los productos, sino mostramos una imagen */}
       {!isLoading && searchResults.length > 0 ? (
         <ItemList items={searchResults} />
       ) : (

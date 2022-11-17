@@ -17,19 +17,14 @@ const Cart = () => {
 
   return (
     <>
-      {/* Cart overlay */}
       <div
         className={isCartOpen ? 'cart-overlay' : null}
         onClick={() => closeCart()}
       ></div>
 
-      {/* Cart */}
       <div className={`cart ${isCartOpen ? 'cart--open' : ''}`}>
-        {/* Cart header */}
         <CartHeader />
 
-        {/* Cart body */}
-        {/* Mostrar el cart body y el cart footer sólo si hay productos en el carrito, sino mostrar un mensaje */}
         {cart.length > 0 ? (
           <>
             <CartBody cart={cart} />

@@ -3,7 +3,6 @@ import { MenuContext } from '../../context/MenuContext';
 
 import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-/* Muestra el menú hamburger o una X dependiendo del estado del menú (abierto o cerrado) */
 const MenuMobileButton = () => {
   const { isMenuOpen, toggleMenu } = useContext(MenuContext);
 

@@ -13,10 +13,8 @@ const ItemListContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    // Traer todos los productos donde la categoría (id) se encuentre en el array categories
     const q = query(productsRef, where('categories', 'array-contains', id));
 
-    // Request para traer los productos...
     getItems(q)
       .then((items) => {
         items.length ? setItems(items) : setNotFound(true);
@@ -25,9 +23,7 @@ const ItemListContainer = () => {
         console.log(e);
       });
 
-    // Cleanup function
     return () => {
-      // Vaciar catálogo
       setItems([]);
       setNotFound(false);
     };

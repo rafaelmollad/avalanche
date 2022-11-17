@@ -1,11 +1,8 @@
-// Importar components Swiper para React
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Importar los estilos de Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Importar los módulos que vamos a usar de Swiper
 import { Pagination } from 'swiper';
 
 import { Link } from 'react-router-dom';
@@ -31,13 +28,11 @@ const Slider = ({ items, category }) => {
         }}
         modules={[Pagination]}
         breakpoints={{
-          // when window width is >= 1024px
           1024: {
             slidesPerView: 4,
           },
         }}
       >
-        {/* Mapear los productos filtrados o mostrar un skeleton loading */}
         {items.length > 0
           ? items.map(({ id, title, price, imgUrl }) => (
               <SwiperSlide key={id}>

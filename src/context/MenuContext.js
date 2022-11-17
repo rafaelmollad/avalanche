@@ -11,7 +11,6 @@ const MenuProvider = ({ children }) => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Funcion que cambia el estado del menú de abierto a cerrado y viceversa
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };

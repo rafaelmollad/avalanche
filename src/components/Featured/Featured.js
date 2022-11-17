@@ -17,9 +17,7 @@ const Featured = () => {
     );
   };
 
-  // Request para traer el catálogo...
   useEffect(() => {
-    // Actualizar el state si la promesa fue exitosa o mostrar un error en la consola si algo falló
     getItemsArray([
       getQuery('destacado-hombre'),
       getQuery('destacado-mujer'),

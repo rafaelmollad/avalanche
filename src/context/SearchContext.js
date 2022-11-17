@@ -10,17 +10,14 @@ const SearchProvider = ({ children }) => {
   const { isMenuOpen } = useContext(MenuContext);
   const { pathname, search } = useLocation();
 
-  // Cerrar la barra de búsqueda cuando cambia el pathname o el search query
   useEffect(() => {
     setIsSearchOpen(false);
   }, [pathname, search]);
 
-  // Cerrar la barra de búsqueda si el menú está abierto.
   if (isSearchOpen && isMenuOpen) {
     return setIsSearchOpen(false);
   }
 
-  // Funcion que cambia el estado de la barra de búsqueda de abierto a cerrado y viceversa
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };

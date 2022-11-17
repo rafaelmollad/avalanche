@@ -18,7 +18,6 @@ const SearchBar = () => {
       search: `?query=${searchQuery}`,
     });
 
-    // Volver el searchQuery al estado inicial
     setSearchQuery('');
   };
 

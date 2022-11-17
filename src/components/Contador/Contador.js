@@ -5,8 +5,6 @@ const Contador = ({ stock, onAdd, initialQuantity = 1, isItemInCart }) => {
   const isMounted = useRef(false);
 
   useEffect(() => {
-    // Si el item no está en el carrito (porque se eliminó), volver quantity a 1
-    // Este código se ejecuta solamente después del primer render porque ya se inicializa quantity en 1
     if (isMounted.current) {
       if (!isItemInCart) {
         setQuantity(1);
@@ -16,14 +14,12 @@ const Contador = ({ stock, onAdd, initialQuantity = 1, isItemInCart }) => {
     }
   }, [isItemInCart]);
 
-  // Permitir sumar mientras que el valor sea menor que el stock
   const add = () => {
     if (quantity < stock) {
       setQuantity(quantity + 1);
     }
   };
 
-  // Permitir restar mientras que el valor sea mayor a uno
   const subtract = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
