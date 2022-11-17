@@ -54,7 +54,7 @@ const Confirmation = () => {
         <p className='confirmation__message'>
           {success ? (
             <>
-              Tu número de orden es:
+              Tu número de orden es:{' '}
               <span className='confirmation__order-id'>{state.orderId}</span>
             </>
           ) : (

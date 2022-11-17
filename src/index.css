@@ -880,6 +880,7 @@ button {
 
 .confirmation__order-id {
   font-weight: 600;
+  user-select: inherit;
 }
 
 .confirmation__btn {
