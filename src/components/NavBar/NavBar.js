@@ -26,12 +26,12 @@ const NavBar = () => {
         <MenuDesktop />
       </div>
       <div className='navbar__right'>
-        <UserIcon className='navbar-icon' />
+        {/* <UserIcon className='navbar-icon' /> */}
         <MagnifyingGlassIcon
           className='navbar-icon'
           onClick={() => toggleSearch()}
         />
-        <HeartIcon className='navbar-icon' />
+        {/* <HeartIcon className='navbar-icon' /> */}
         <CartWidget />
       </div>
     </nav>

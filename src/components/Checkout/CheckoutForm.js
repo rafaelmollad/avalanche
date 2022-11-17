@@ -10,6 +10,7 @@ import {
   emailRegex,
   phoneRegex,
   dniRegex,
+  oneOrMoreDigitsRegex,
 } from '../../utils/helpers';
 import { useNavigate } from 'react-router-dom';
 import { ordersRef } from '../../services/fbConfig';
@@ -83,6 +84,7 @@ const CheckoutForm = () => {
           pattern={nameRegex}
         />
         <Input
+          type='email'
           label='E-mail'
           fieldName='email'
           register={register}
@@ -90,6 +92,7 @@ const CheckoutForm = () => {
           pattern={emailRegex}
         />
         <Input
+          type='email'
           label='Confirmar e-mail'
           fieldName='email-confirmation'
           register={register}
@@ -98,11 +101,11 @@ const CheckoutForm = () => {
           validate={(value) => value === getValues('email')}
         />
         <Input
+          type='tel'
           label='Teléfono'
           fieldName='telefono'
           register={register}
           errors={errors}
-          number={true}
           pattern={phoneRegex}
         />
         <Input
@@ -119,7 +122,7 @@ const CheckoutForm = () => {
           placeholder='Número de la casa'
           register={register}
           errors={errors}
-          number={true}
+          pattern={oneOrMoreDigitsRegex}
           maxLength={5}
         />
         <Input
@@ -155,7 +158,6 @@ const CheckoutForm = () => {
           placeholder='Ingrese su DNI sin puntos'
           register={register}
           errors={errors}
-          number={true}
           pattern={dniRegex}
         />
       </div>

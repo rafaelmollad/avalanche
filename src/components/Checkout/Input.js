@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Input = ({
+  type = 'text',
   label,
   fieldName,
   placeholder,
@@ -9,7 +10,6 @@ const Input = ({
   errors,
   pattern,
   validate,
-  number,
   maxLength,
 }) => {
   return (
@@ -19,7 +19,7 @@ const Input = ({
       </label>
 
       <input
-        type={number ? 'number' : 'text'}
+        type={type}
         className={`input-container__input ${
           errors[fieldName] ? 'input-container__input--error' : ''
         }`}
