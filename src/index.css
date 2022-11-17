@@ -869,22 +869,40 @@ button {
 }
 
 .confirmation__title {
-  margin-bottom: 0.2rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .confirmation__message {
   user-select: text;
+  font-size: 1.3rem;
+}
+
+.confirmation__order-id {
+  font-weight: 600;
 }
 
 .confirmation__btn {
-  background: var(--white);
-  padding: 1rem 2rem;
+  position: relative;
+  color: var(--white);
   margin-top: 2rem;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: 0.5px;
   cursor: pointer;
   font-weight: 500;
-  border-radius: 1px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.confirmation__btn::after {
+  content: '';
+  height: 1px;
+  background: var(--white);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /******************
@@ -954,6 +972,19 @@ button {
 
   .cart-item__image {
     height: 20rem;
+  }
+
+  /* Confirmation */
+  .confirmation__title {
+    font-size: 2rem;
+  }
+
+  .confirmation__message {
+    font-size: 1.5rem;
+  }
+
+  .confirmation__btn {
+    font-size: 1.4rem;
   }
 }
 
@@ -1073,6 +1104,15 @@ button {
 
   .checkout-form__btn {
     width: calc(50% - 1rem);
+  }
+
+  /* Confirmation */
+  .confirmation__title {
+    font-size: 2.5rem;
+  }
+
+  .confirmation__message {
+    font-size: 1.8rem;
   }
 }
 

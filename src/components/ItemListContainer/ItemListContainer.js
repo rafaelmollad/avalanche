@@ -29,6 +29,7 @@ const ItemListContainer = () => {
     return () => {
       // Vaciar catálogo
       setItems([]);
+      setNotFound(false);
     };
   }, [id]);
 

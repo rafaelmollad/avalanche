@@ -5,11 +5,10 @@ import {
   CreditCardIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 const Confirmation = () => {
   const state = useLocation().state;
-  const navigate = useNavigate();
 
   const success = useParams().confirmation === 'success' ? true : false;
 
@@ -53,17 +52,19 @@ const Confirmation = () => {
             : 'Algo salió mal...'}
         </h2>
         <p className='confirmation__message'>
-          {success
-            ? `Tu número de orden es: ${state.orderId}`
-            : 'Hubo un error procesando tu compra, intentá nuevamente mas tarde.'}
+          {success ? (
+            <>
+              Tu número de orden es:
+              <span className='confirmation__order-id'>{state.orderId}</span>
+            </>
+          ) : (
+            'Hubo un error procesando tu compra, intentá nuevamente mas tarde.'
+          )}
         </p>
       </div>
-      <button
-        onClick={() => navigate('/', { replace: true })}
-        className='confirmation__btn'
-      >
-        Volver al inicio
-      </button>
+      <Link to='/' replace className='confirmation__btn'>
+        Regresar a la página principal
+      </Link>
     </div>
   );
 };
