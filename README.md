@@ -5,7 +5,7 @@ Mi proyecto final para el curso de React de CoderHouse.
 ## TLDR
 
 - E-commerce creado con React y Firebase
-- [Link al proyecto](https://coruscating-mooncake-296c25.netlify.app/)
+- [Link al proyecto](https://avalanche-ecommerce.netlify.app/)
 
 ![Captura de pantalla de página web](https://res.cloudinary.com/dpvg9kfdq/image/upload/v1668713551/AVALANCHE-min_broisx.png)
 
